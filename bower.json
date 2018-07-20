@@ -1,0 +1,47 @@
+{
+  "name": "agent-a",
+  "description": "A puzzle in disguise, a spy themed puzzle and adventure game for iOS and Android.",
+  "main": "",
+  "authors": [
+    "Yak & co"
+  ],
+  "license": "ISC",
+  "keywords": [
+    "Agent",
+    "A",
+    "game",
+    "Agent",
+    "A",
+    "puzzle",
+    "game",
+    "adventure",
+    "game",
+    "mobile",
+    "game",
+    "ios",
+    "game",
+    "android",
+    "game"
+  ],
+  "homepage": "http://www.agentagame.com/",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "library/components/",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "browsersize-tooltip": "*",
+    "console.message": "https://github.com/astoilkov/console.message.git#~0.1.0",
+    "animate.css": "animate-css#^3.5.2",
+    "wow": "wowjs#^1.1.2",
+    "lightbox2": "^2.9.0",
+    "foundation-sites": "^6.2.4",
+    "motion-ui": "^1.2.2",
+    "imagesloaded": "^4.1.1",
+    "fontfaceobserver": "^2.0.7"
+  }
+}
