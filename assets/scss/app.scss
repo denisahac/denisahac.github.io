@@ -1,0 +1,115 @@
+$gray: #434242;
+$light-gray: #9c9c9c;
+$white: #ffffff;
+$black: #000000;
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	background-color: $white;
+	font-size: 14px;
+	font-family: 'Inconsolata', monospace;
+	color: $gray;
+	letter-spacing: 2px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	margin-bottom: 1rem;
+	text-transform: uppercase;
+}
+
+p {
+	margin-bottom: 1rem;
+	line-height: 1.6;
+}
+
+a {
+	color: $light-gray;
+	transition: color 0.3s ease-in-out;
+	
+	&:active,
+	&:focus,
+	&:hover {
+		color: $gray;
+	}
+}
+
+#container {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1200px;
+	height: 100vh;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#container > main {
+	width: 350px;
+	margin-left: 100px;
+}
+
+article {
+	header {
+		position: relative;
+
+		&::before {
+			content: '.';
+			position: absolute;
+			left: -3rem;
+			bottom: 6px;
+			display: inline-block;
+			width: 2rem;
+			height: 1px;
+			background-color: $gray;
+			color: transparent;
+		}
+	}
+
+	footer {
+		ul.links {
+			list-style: none;
+			
+			> li {
+				display: inline-block;
+				margin-right: 0.25rem;
+			}
+		}
+	}
+}
+
+/* Small Devices, Tablets */
+@media only screen and (max-width : 768px) {
+	#container > main {
+		width: 300px;
+		margin-left: 50px;
+	}
+}
+
+/* Extra Small Devices, Phones */ 
+@media only screen and (max-width : 480px) {
+	#container > main {
+		margin-left: 25px;
+	}
+
+	article {
+		header {
+			&::before {
+				content: none;
+			}
+		}
+	}
+}
+
+/* Custom, iPhone Retina */ 
+@media only screen and (max-width : 320px) {
+	#container > main {
+		width: 100%;
+		margin-left: 0;
+		padding-left: 1rem;
+		padding-right: 1rem;
+	}
+}
