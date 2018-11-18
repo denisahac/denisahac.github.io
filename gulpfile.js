@@ -46,7 +46,6 @@ gulp.task('lint', function() {
     // Alternatively use eslint.formatEach() (see Docs).
     .pipe(eslint.format())
     // To have the process exit with an error code (1) on
-    // lint error, return the stream and pipe to failAfterError last.
     // .pipe(eslint.failAfterError());
 });
 
@@ -54,23 +53,21 @@ gulp.task('lint', function() {
  * Transform Javascripts.
  */
 gulp.task('js', function() {
-	return gulp.src('assets/js/*.js')
+	return gulp.src('assets/js/**/*.js')
 		.pipe(babel())
-		.pipe(browserify())
 		.pipe(gulp.dest('assets/dist/js/'))
 });
 
  /**
  * Transform and bundle Javasdcripts into single file.
  */
-gulp.task('js', function() {
+gulp.task('concat', function() {
 	return gulp.src([
-			'assets/components/fontfaceobserver/fontfaceobserver.js',
-			'assets/components/wow/dist/wow.js',
-			'assets/js/app.js'
+			'assets/dist/js/app.js'
 		])
 		.pipe(babel())
 		.pipe(concat('app.min.js'))
+		.pipe(browserify())
 		.pipe(uglify())
 		.pipe(gulp.dest('assets/dist/js/'))
 		.pipe(browserSync.stream());
@@ -97,7 +94,7 @@ gulp.task('serve', function() {
 	gulp.watch('assets/scss/**/*.scss', ['sass']);
 
 	// Watch for .js file changes
-	gulp.watch('assets/js/**/*.js', ['lint', 'js']);
+	gulp.watch('assets/js/**/*.js', ['lint', 'js', 'concat']);
 
 	// Watch for .html file changes.
 	gulp.watch('*.html').on('change', browserSync.reload);
@@ -106,4 +103,4 @@ gulp.task('serve', function() {
 /**
  * Configure default task.
  */
-gulp.task('default', ['sass', 'lint', 'js', 'serve']);
+gulp.task('default', ['sass', 'lint', 'js', 'concat', 'serve']);
