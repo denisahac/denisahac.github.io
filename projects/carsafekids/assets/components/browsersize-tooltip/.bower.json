@@ -1,0 +1,40 @@
+{
+  "name": "browsersize-tooltip",
+  "version": "1.0.0",
+  "description": "Browser window width and height tooltip",
+  "main": "Gruntfile.js",
+  "authors": [
+    "den.isahac"
+  ],
+  "license": "Unlicense",
+  "keywords": [
+    "js-tool",
+    "webdev-tool"
+  ],
+  "homepage": "https://github.com/denisahac/browsersize-tooltip",
+  "moduleType": [
+    "amd",
+    "es6"
+  ],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests",
+    "bower.json",
+    "Gruntfile.js",
+    "index.html",
+    "package.json"
+  ],
+  "_release": "1.0.0",
+  "_resolution": {
+    "type": "version",
+    "tag": "v1.0.0",
+    "commit": "1e9b813908aa32d8b868353c8c6411dbec0d8e3f"
+  },
+  "_source": "https://github.com/denisahac/browsersize-tooltip.git",
+  "_target": "^1.0.0",
+  "_originalSource": "browsersize-tooltip",
+  "_direct": true
+}
