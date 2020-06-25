@@ -25,7 +25,7 @@
 
 		<!-- Short description of the document (limit to 150 characters) -->
 		<!-- This content *may* be used as a part of search engine results. -->
-		<meta name="description" content="Car seat fittings and intallations in Melbourne Australia.">
+		<meta name="description" content="Car seat fittings ans intallations in Melbourne Australia.">
 
 		<!-- Control the behavior of search engine crawling and indexing -->
 		<meta name="robots" content="index,follow"><!-- All Search Engines -->
@@ -84,8 +84,8 @@
 		<link rel="license" href="copyright.txt">
 
 		<!-- Provides information about an author or another person -->
-		<link rel="me" href="mailto:info@carsafekids.com.au">
-		<link rel="me" href="tel:0414980144">
+		<link rel="me" href="mailto:info@actionbrickcutting.com.au">
+		<link rel="me" href="tel:0418561543">
 
 		<!-- Open Search -->
 		<link rel="search" href="/open-search.xml" type="application/opensearchdescription+xml" title="CarSafeKids">
@@ -93,10 +93,10 @@
 		<!-- Prefetching, preloading, prebrowsing -->
 		<!-- More info: https://css-tricks.com/prefetching-preloading-prebrowsing/ -->
 		<!--
-		<link rel="dns-prefetch" href="//www.carsafekids.com.au/">
-		<link rel="preconnect" href="http://www.carsafekids.com.au/">
-		<link rel="prefetch" href="http://www.carsafekids.com.au/">
-		<link rel="prerender" href="http://www.carsafekids.com.au/">
+		<link rel="dns-prefetch" href="//www.actionbrickcutting.com.au/">
+		<link rel="preconnect" href="http://www.actionbrickcutting.com.au/">
+		<link rel="prefetch" href="http://www.actionbrickcutting.com.au/">
+		<link rel="prerender" href="http://www.actionbrickcutting.com.au/">
 		<link rel="preload" href="image.png" as="image">
 	  -->
 
@@ -253,11 +253,11 @@
 			<div id="off-canvas" class="off-canvas position-right" data-off-canvas data-transition="overlap">
 				<div class="row column">
 					<ul id="off-canvas-menu" class="menu off-canvas-menu vertical">
-						<li><a class="is-active" href="index.html" title="Home">Home</a></li>
+						<li><a href="index.html" title="Home">Home</a></li>
             <li><a href="what-do-we-do.html" title="What do we do?">What do we do?</a></li>
             <li><a href="about-peter.html" title="About Peter">About Peter</a></li>
             <li><a href="price-list.html" title="Price list">Price list</a></li>
-            <li><a href="tel:0414980144" title="Contact: 0414 980 144">Contact <span>0414 980 144</span></a></li>
+            <li><a href="tel:0414980144" title="Contact: 0414 980 144">Contact: <span>0414 980 144</span></a></li>
 					</ul>
 				</div>
 			</div>
@@ -285,7 +285,7 @@
 
 						<div class="inner">
 							<div class="row align-middle">
-                <div class="small-12 medium-3 column">
+                <div class="small-12 medium-4 column">
                   <div class="logo-wrapper">
                     <a id="logo" href="index.html">
                       <img src="assets/images/logo.png" alt="CarSafeKids"/>
@@ -293,7 +293,7 @@
                   </div>
                 </div>
 
-								<div class="medium-9 column show-for-medium">
+								<div class="medium-8 column show-for-large">
 									<ul id="main-menu" class="menu menu--main align-right">
 										<li><a href="what-do-we-do.html" title="What do we do?">What do we do?</a></li>
 										<li><a href="about-peter.html" title="About Peter">About Peter</a></li>
@@ -307,7 +307,7 @@
 
 					<main>
 						<!-- Banner -->
-						<section id="banner" class="banner banner--home">
+						<section id="banner" class="banner">
 							<h2 class="hide">Main Banner</h2>
 
 							<div class="owl-carousel carousel js-carousel">
@@ -322,18 +322,16 @@
 								<div class="row align-center">
 									<div class="small-12 medium-11 column">
                     <p class="title wow fadeInUp">CarSafeKids</p>
-										<p class="subtitle h1 wow fadeInUp" data-wow-delay="0.3s">
+										<p class="subtitle h1 wow fadeInUp">
                       Melbourne's favourite
                       <br/>
                       <strong>
                         Child Restraint
                         <br/>
-                        installation
-                        <br/>
-                        professionals</strong>
+                        installation professionals</strong>
                     </p>
 
-                    <a class="button secondary show-for-medium wow fadeInUp" href="what-do-we-do.html" title="Find out more" data-wow-delay="0.6s">Find out more</a>
+                    <a class="button secondary" href="#" title="Find out more">Find out more</a>
 									</div>
 								</div>
 							</div>
@@ -342,10 +340,8 @@
             <!-- Warning -->
             <article id="warning" class="section section--padded">
               <div class="row">
-                <div class="small-12 medium-8 column">
-                  <a class="button secondary hide-for-medium wow fadeInUp" href="what-do-we-do.html" title="Find out more">Find out more</a>
-
-                  <p class="message wow fadeInUp">"Approximately <span class="highlight">70% of child restraints are not installed correctly.</span>
+                <div class="medium-8 column">
+                  <p class="message">"Approximately <span class="highlight">70% of child restraints are not installed correctly.</span>
                     <br/>
                     A child restraint that has not been fitted properly can result in serious
                     <br/>
@@ -353,7 +349,7 @@
                   </p>
                 </div>
                 <div class="column">
-                  <img class="wow fadeInUp" src="assets/images/racv.jpg" alt="RACV"/> 
+                  <img src="assets/images/racv.jpg" alt="RACV"/> 
                 </div>
               </div>
             </article> <!-- end of: Warning -->
@@ -361,19 +357,19 @@
 						<!-- About -->
 						<article id="about" class="section">
 							<div class="row">
-                <div class="small-12 large-6 column image-wrapper">
-                  <figure class="wow fadeInUp" style="background-image: url(assets/images/about.jpg)">
+                <div class="medium-6 column image-wrapper">
+                  <figure style="background-image: url(assets/images/about.jpg)">
                     <img src="assets/images/about.jpg" alt="Operating for over 15 years"/>
                   </figure>
                 </div>
 
-                <div class="small-12 large-6 column">
+                <div class="medium-6 column">
                   <div class="inner section--padded"> 
-                    <h2 class="section__title wow fadeInUp">Operating for over 15 years</h2>
+                    <h2 class="section__title">Operating for over 15 years</h2>
 
-                    <p class="wow fadeInUp" data-wow-delay="0.3s">CarSafeKids is a Melbourne based accredited company who specialise in the expert fitting of child restraints. With over fifteen years of professional experience in the industry, CarSafeKids adheres to the following principals:</p>
+                    <p>CarSafeKids is a Melbourne based accredited company who specialise in the expert fitting of child restraints. With over fifteen years of professional experience in the industry, CarSafeKids adheres to the following principals:</p>
 
-                    <table class="wow fadeInUp" data-wow-delay="0.6s">
+                    <table>
                       <tbody>
                         <tr>
                           <td>Choice</td> 
@@ -390,9 +386,9 @@
                       </tbody>
                     </table>
 
-                    <p class="wow fadeInUp">CarSafeKids offers a premium fitting service whilst also offering obligation free advice pertaining purchase & consultation, installation, education and general advice. We pride ourselves in providing a service that is honest, courteous and punctual. <br/>CarSafeKids - <em>Keeping kids safe!</em></p>
+                    <p>CarSafeKids offers a premium fitting service whilst also offering obligation free advice pertaining purchase & consultation, installation, education and general advice. We pride ourselves in providing a service that is honest, courteous and punctual. <br/>CarSafeKids - <em>Keeping kids safe!</em></p>
 
-                    <a class="button wow fadeInUp" href="about-peter.html" title="Read more about Pete" data-wow-delay="0.3s">Read more about Pete</a>
+                    <a class="button" href="#" title="Read more about Pete">Read more about Pete</a>
                   </div>
                 </div>
 							</div>
@@ -406,11 +402,11 @@
 								</div>
 							</header>
 							
-							<article data-equalizer data-equalize-on="medium">
+							<article class="service" data-equalizer data-equalize-on="medium">
 								<div class="row">
-									<div class="small-12 medium-3 column">
+									<div class="medium-3 column">
 										<div class="service__inner-wrapper">
-                      <article class="service wow fadeInUp">
+                      <article class="service">
                         <h3 class="service__title">Premium Service</h3>
                         <img class="service__icon" src="assets/images/services/premium-service.png" alt="Premium Service"/>
 
@@ -419,9 +415,9 @@
 										</div>
 									</div>
 
-								<div class="small-12 medium-3 column">
+								<div class="medium-3 column">
 										<div class="service__inner-wrapper">
-                      <article class="service wow fadeInUp" data-wow-delay="0.3s">
+                      <article class="service">
                         <h3 class="service__title">Accreditation</h3>
                         <img class="service__icon" src="assets/images/services/accreditation.png" alt="Accreditation"/>
 
@@ -430,9 +426,9 @@
 										</div>
 									</div>
 
-									<div class="small-12 medium-3 column">
+									<div class="medium-3 column">
 										<div class="service__inner-wrapper">
-                      <article class="service wow fadeInUp" data-wow-delay="0.6s">
+                      <article class="service">
                         <h3 class="service__title">Mobile Service</h3>
                         <img class="service__icon" src="assets/images/services/mobile-service.png" alt="Mobile Service"/>
 
@@ -441,9 +437,9 @@
 										</div>
 									</div>
                 
-									<div class="small-12 medium-3 column">
+									<div class="medium-3 column">
 										<div class="service__inner-wrapper">
-                      <article class="service wow fadeInUp" data-wow-delay="0.9s">
+                      <article class="service">
                         <h3 class="service__title">Experience</h3>
                         <img class="service__icon" src="assets/images/services/experience.png" alt="Experience"/>
 
@@ -495,7 +491,7 @@
                         </div>
                         <span class="testimonial__author">Dimie</span>
                         <div class="testimonial__metadata">
-                          <span class="testimonial__author-location">Mother of<br/> Isla 9mths</span>
+                          <span class="testimonial__author-location">Mother of Isla 9mths</span>
                           <span class="testimonial__stars">
                             <i></i>
                             <i></i>
@@ -533,10 +529,10 @@
             <!-- Badges -->
             <div id="badges" class="section section--padded">
               <div class="row align-center">
-                <div class="small-11 large-10 column">
+                <div class="medium-11 large-10 column">
                   <div class="row">
-                    <div class="small-12 medium-6 column">
-                      <figure class="wow fadeInUp">
+                    <div class="column">
+                      <figure>
                         <img src="assets/images/acri.png" alt="Accredited by Australian Child Restraints Resource Initiative (ACRI)"/>
 
                         <figcaption>
@@ -545,8 +541,8 @@
                       </figure>
                     </div>
 
-                    <div class="small-12 medium-6 column">
-                      <figure class="wow fadeInUp" daa-wow-delay="0.3s">
+                    <div class="column">
+                      <figure>
                         <img src="assets/images/kidsafe.png" alt="Accredited by Kidsafe Victoria, The Child Accident Prevention Foundation of Australia"/>
 
                         <figcaption>
@@ -573,7 +569,6 @@
 
 		<!-- JavaScript & No-JavaScript tags -->
 		
-    <!--
 		<script src="node_modules/jquery/dist/jquery.js"></script>
 		<script src="node_modules/foundation-sites/dist/js/plugins/foundation.core.js"></script>
 		<script src="node_modules/foundation-sites/dist/js/plugins/foundation.util.mediaQuery.js"></script>
@@ -591,9 +586,8 @@
 		<script src="node_modules/wowjs/dist/wow.js"></script>
 		<script src="node_modules/fontfaceobserver/fontfaceobserver.js"></script>
 		<script src="assets/dist/js/app.js"></script>
-	  -->
-
-		<script src="assets/dist/js/app.min.js"></script>
+		
+		<!-- <script src="assets/dist/js/app.min.js"></script> -->
 
 		<noscript>
 		  <!-- No JS alternative -->

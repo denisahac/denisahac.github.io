@@ -27,6 +27,7 @@
   "dependencies": {
     "fontfaceobserver": "^2.1.0",
     "foundation-sites": "^6.6.3",
+    "hamburgers": "^1.1.3",
     "owl.carousel": "^2.3.4",
     "wowjs": "^1.1.3"
   }

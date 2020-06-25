@@ -4,6 +4,7 @@
 @import 'foundation';
 @import 'owl.carousel';
 @import 'owl.theme.default';
+@import 'hamburgers';
 // @import 'motion-ui';
 
 @include foundation-global-styles;
@@ -80,7 +81,7 @@
 }
 
 .wow {
-  //visibility: hidden;
+  visibility: hidden;
 }
 
 .animated {
@@ -156,7 +157,7 @@
 // General |
 // --------
 body {
-  padding-top: 144px;
+  padding-top: 120px;
 
 	font-family: 'Montserrat', sans-serif;
 
@@ -289,6 +290,11 @@ ul.bullet {
       font-weight: 600;
 			transition: color 0.3s ease-in-out;
 
+      @include breakpoint(medium down) {
+        margin-left: 0.75rem;
+        margin-right: 0.75rem;
+      }
+
 			#container > header.shrinked & {
 				@include breakpoint(large) {
 					padding-top: 0.75rem;
@@ -329,6 +335,11 @@ ul.bullet {
   border-radius: 8px;
   background-color: $primary-color;
   color: $white;
+
+  @include breakpoint(small down) {
+    display: block;
+    width: 100%;
+  }
 
   &:active,
   &:focus,
@@ -469,44 +480,80 @@ form {
 // -----------
 // Off Canvas |
 // -----------
+.js-off-canvas-overlay {
+  display: none !important;
+}
+
 .off-canvas {
-	
+  z-index: 100;
+
+  @include breakpoint(large) {
+    display: none;
+  }
+
 	&-menu {
-		margin-top: 6px;
+		margin: 24px map-get($grid-column-gutter, medium) auto;
 		padding-top: 1rem;
-		border-top: 1px solid $red-border;
 
 		a {
-			padding: 1rem;
+			padding: 1rem 0;
 
 			&.is-active {
-				color: $yellow;
+				color: $orange;
 			}
+
+      &:active,
+      &:focus {
+        color: $white;
+      }
 		}
+
+    li:last-child {
+      margin-top: 1.5rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid #3b98b4;
+
+      a {
+        text-decoration: none;
+
+        &:active,
+        &:focus,
+        &:hover {
+          color: $white;
+
+          span { color: $orange; }
+        }
+      }
+
+      span {
+        display: block;
+        font-size: 1.25rem;
+        line-height: 1.8;
+      }
+    }
 	}
 
 	a {
 		color: $white;
+    font-weight: 600;
+    text-decoration: underline;
 
-		&:active,
-		&:focus,
 		&:hover {
 			outline: none;
-			color: scale-color($white, $lightness: -5%);
+			color: $orange;
 		}
+
+    &[href^='tel:'] {
+      
+    }
 	}
 
-	&-content {
-		&[class*='is-open'] {
-			.telephone {
-				display: none;
-			}
-
-			.title-bar-title .title {
-				display: block;
-			}
-		}
-	}
+  &-content.is-open-right {
+    .title-bar-wrapper {
+      background: $dark-blue;
+      transition-delay: 0s;
+    }
+  }
 }
 
 // -------
@@ -517,7 +564,7 @@ form {
 	top: 0;
 	left: 0;
 	width: 100%;
-	z-index: 99;
+	z-index: 9;
 	background-color: $white;
   box-shadow: 0px 5px 20px rgba(36, 36, 36, 0.12);
 
@@ -539,10 +586,18 @@ form {
     background-color: get-color(primary);
     color: transparent;
     transition: height 0.3s ease-in-out;
+
+    @include breakpoint(small down) {
+      content: none;
+    }
   }
   
 	.inner {
     padding: 1rem 0 0.75rem;
+
+    @include breakpoint(small down) {
+      padding-bottom: 1rem;
+    }
 
 		@include breakpoint(large) {
 			display: block;
@@ -569,54 +624,37 @@ form {
 	}
 }
 
+.logo-wrapper {
+  @include breakpoint(medium down) {
+    text-align: center;
+  }
+}
+
 #logo {
+
   > img {
-    width: 305px;
+    width: 240px;
     transition: width 0.3s ease-in-out;
+
+    @include breakpoint(large) {
+      width: 305px;
+    }
   }
 }
 
 .title-bar {
-	padding-left: 0;
-	padding-right: 0;
-	justify-content: space-between;
-	background-color: $light-red;
+  padding: 0;
+	justify-content: flex-end;
 	overflow: hidden;
 
-	@include breakpoint(large) {
+	@include breakpoint(medium) {
 		display: none;
 	}
-
-	&-title {
-		position: relative;
-		font-weight: 400;
-
-		.title {
-			display: none;
-			line-height: 1;
-			margin-bottom: 0;
-			font-size: 1rem;
-			font-weight: 400;
-			text-transform: uppercase;
-			transition: opacity 0.15s ease-in-out;
-
-			strong {
-				display: block;
-				font-weight: 700;
-			}
-		}
-	}
-
-
-	.telephone {
-		display: inline-block;
-		transition: all 0.15s ease-in-out;
-
-		&::before {
-			width: 20px;
-			height: 20px;
-		}
-	}
+  
+  &-wrapper {
+    background-color: get-color(primary);
+    transition: background 0.3s ease-in-out;
+  }
 }
 
 .telephone {
@@ -633,7 +671,11 @@ form {
 }
 
 #hamburger {
-	margin: 6px -4px 2px 0;
+	margin: 6px 0 2px 0;
+
+  &:focus {
+    outline: 0;
+  }
 }
 
 // -------
@@ -642,12 +684,34 @@ form {
 .banner {
 	position: relative;
 
+  &--home {
+
+    .banner__content {
+      @include breakpoint(small down) {
+        top: 40%;
+        padding: 0 20px;
+      }
+
+      @include breakpoint(medium) {
+        br:last-of-type {
+          display: none;
+        }
+      }
+    }
+
+    figure {
+      @include breakpoint(small down) {
+        background-image: url(../../images/banners/home-mobile.jpg) !important;
+      }
+    }
+  }
+
 	figure {
-		height: 225px;
+		height: 250px;
 		background-repeat: no-repeat;
 		background-size: cover;
 		background-position: 50% 50%;
-		
+	
 		@include breakpoint(medium) {
 			height: 445px;
 		}
@@ -663,7 +727,11 @@ form {
 
   &--alt {
     figure {
-      height: 375px;
+      height: 370px;
+
+      @include breakpoint(small down) {
+        height: 250px;
+      }
     }
 
     .banner {
@@ -677,6 +745,11 @@ form {
         .title {
           @extend .h1;
           margin-bottom: 0.25rem;
+
+          @include breakpoint(small down) {
+            line-height: 1;
+            font-size: 1.25rem;
+          }
         }
         
         .subtitle {
@@ -698,6 +771,10 @@ form {
       margin-bottom: 0.5rem;
       color: get-color(primary);
       font-weight: 700;
+
+      @include breakpoint(small down) {
+        margin-bottom: 0;
+      }
     }
 
 		.subtitle {
@@ -706,6 +783,11 @@ form {
       margin-bottom: 1rem;
 			color: $white;
 			font-weight: 400;
+
+      @include breakpoint(small down) {
+        line-height: 1.4;
+        font-size: 1rem;
+      }
 
 			strong {
 				display: block;
@@ -733,6 +815,10 @@ form {
     padding-bottom: 18px;
   }
 
+  &__title {
+    color: get-color(primary);
+  }
+
   &--alt {
       .section__title {
         font-weight: 700;
@@ -750,10 +836,31 @@ form {
 // Warning |
 // --------
 #warning {
+  @include breakpoint(small down) {
+    padding-top: 1rem;
+    text-align: center;
+
+    .button {
+      margin-bottom: 0.5rem;
+    }
+  }
+
   .message {
     padding-right: map-get($grid-column-gutter, medium);
     border-right: 1px solid $gray;
     text-align: right;
+
+    @include breakpoint(small only) {
+      padding-top: 1rem;
+      padding-bottom: 1rem;
+      padding-left: map-get($grid-column-gutter, medium);
+      border-right: 0;
+      text-align: center;
+
+      br {
+        display: none;
+      }
+    }
   }
 }
 
@@ -770,6 +877,20 @@ form {
   background-color: get-color(primary);
   color: $white;
 
+  @include breakpoint(small down) {
+    .button {
+      margin-bottom: 0;
+    }
+
+    .inner {
+      padding-top: map-get($grid-column-gutter, small);
+    }
+  }
+
+  .section__title {
+    color: $white;
+  }
+
   .image-wrapper {
     display: flex;
   }
@@ -778,8 +899,19 @@ form {
     background-size: cover;
     background-position: 50% 50%;
 
+    @include breakpoint(medium down) {
+      width: 100%;
+      padding-top: map-get($grid-column-gutter, small) / 2;
+      background-image: none !important;
+    }
+
     img {
       visibility: hidden;
+
+      @include breakpoint(medium down) {
+        width: 100%;
+        visibility: visible;
+      }
     }
   }
 
@@ -797,17 +929,28 @@ form {
       background: none;
     }
 
+    tbody tr {
+      @include breakpoint(small down) {
+        display: block;
+        margin-bottom: 1rem;
+      }
+    }
+
     tbody td, 
     tbody th {
       padding: 0 0 1rem;
       font-size: 14px;
+
+      @include breakpoint(small down) {
+        display: block;
+        padding: 0;
+      }
     }
 
     tbody td:first-child,
     tbody th:first-child {
       margin-right: 0.5rem;
       text-transform: uppercase;
-      font-size: 1rem;
     }
   }
 }
@@ -869,6 +1012,18 @@ form {
 // ---------
 // Services |
 // ---------
+#services {
+  .column {
+    @include breakpoint(small down) {
+      &:last-of-type {
+        .service {
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+}
+
 .services--alt {
 
   .inner {
@@ -883,8 +1038,19 @@ form {
 .service {
   text-align: center;
 
+  @include breakpoint(small down) {
+    $padding: map-get($grid-column-gutter, small);
+    margin-bottom: map-get($grid-column-gutter, medium);
+    padding-left: $padding;
+    padding-right: $padding;
+  }
+
   &__title {
     @extend .h4;
+
+    @include breakpoint(small down) {
+      font-weight: 500;
+    }
   }
   
   &__icon {
@@ -903,6 +1069,27 @@ form {
   .section__title {
     color: $white;
   }
+
+  @include breakpoint(medium down) {
+    .owl-dots {
+      text-align: center;
+
+      .owl-dot {
+        display: inline-block;
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        margin: 0 3px;
+        background: $white;
+        transition: background 0.3s ease-in-out;
+        outline: 0 !important;
+
+        &.active {
+          background: $orange;
+        }
+      }
+    }
+  }
 }
 
 .testimonial {
@@ -914,9 +1101,10 @@ form {
     flex-direction: column;
     justify-content: center;
     margin-bottom: $padding;
-    padding: $padding;
+    padding: $padding ($padding * 0.75);
     padding-bottom: $padding / 2;
     border-radius: 1rem;
+    text-align: center;
     background-color: $white;
     color: $black;
 
@@ -944,6 +1132,22 @@ form {
     margin-top: -5px;
     margin-bottom: 1rem;
     padding: 0 1rem;
+
+    @include breakpoint(small down) {
+      display: flex;
+      align-items: center;
+      line-height: 1.1;
+    }
+  }
+
+  &__author-location {
+    br {
+      display: none;
+      
+      @include breakpoint(small down) {
+        display: block;
+      }
+    }
   }
 
   &__stars {
@@ -968,16 +1172,36 @@ form {
   font-size: 14px;
   color: $gray;
 
+  @include breakpoint(small down) {
+    .row .row .column:last-of-type figure {
+      margin-botom: 0;
+    }
+  }
+
   figure {
     display: flex;
 
+    @include breakpoint(small down) {
+      display: block;
+      margin-bottom: map-get($grid-column-gutter, small);
+    }
+
     > img {
+      align-self: flex-start;
       margin-right: 1.5rem;
+
+      @include breakpoint(small down) {
+        margin-bottom: 1rem;
+      }
     }
   }
 }
 
 .do {
+  @include breakpoint(small down) {
+    margin-bottom: map-get($grid-column-gutter, medium); 
+  }
+
   &__title {
     font-weight: 400;
     color: $sky-blue;
@@ -1027,9 +1251,10 @@ form {
 	color: $white;
 	
 	.post {
-		padding-top: 1.5rem;
-		padding-bottom: 1.5rem;
+		padding-top: 1rem;
+		padding-bottom: 1rem;
 		text-align: center;
+    font-size: 14px;
 	}
 
 	.source-org {

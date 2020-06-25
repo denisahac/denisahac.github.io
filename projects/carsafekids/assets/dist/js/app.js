@@ -7,10 +7,6 @@
 	var has_body_padding = false;
 	var header_shrinked = false;
 	var mainMenu = null;
-	var captcha = null;
-	var contactForm = null;
-	var RECAPTCHA_KEY = document.body.dataset.recaptchaKey;
-	var RECAPTCHA_SECRET = document.body.dataset.recaptchaSecret;
 	initComponents();
 
 	/**
@@ -18,7 +14,6 @@
   */
 	function initComponents() {
 		initHeader();
-		initMenu();
 		carousel('.js-testimonials', {
 			items: 3,
 			margin: 20,
@@ -29,7 +24,26 @@
 			dots: false,
 			autoplay: false,
 			autoplayTimeout: 6000, // 6 seconds
-			autoplaySpeed: 900 // 0.9 second
+			autoplaySpeed: 900, // 0.9 second
+
+			responsive: {
+				0: {
+					items: 1,
+					autoplay: true,
+					dots: true
+				},
+				740: {
+					items: 2,
+					autoplay: true,
+					dots: true
+				},
+
+				1024: {
+					items: 3,
+					autoplay: false,
+					dots: false
+				}
+			}
 		});
 
 		carousel('.js-carousel', {
@@ -45,8 +59,6 @@
 			animateOut: 'fadeOut'
 		});
 		initFonts();
-		initGallery();
-		//		initContactForm();
 		logSiteInfo();
 	}
 
@@ -61,7 +73,7 @@
 				$('.js-loading').fadeOut(300, function () {
 					clearInterval(timer);
 					$(window).resize();
-					//animate();
+					animate();
 					initZF();
 				});
 			}, 100);
@@ -108,35 +120,11 @@
 				is_medium_up = true;
 			}
 
-			$('#off-canvas').css('paddingTop', getHeaderHeight() + 'px');
+			var canvasPaddingTop = getHeaderHeight() - getInnerHeaderHeight();
+
+			$('#off-canvas').css('top', canvasPaddingTop + 'px');
 
 			initBody();
-		}
-	}
-
-	/**
-  * Navigation menu smooth scrolling.
-  */
-	function initMenu() {
-		if (Foundation && Foundation.Magellan) {
-			var magellan = new Foundation.Magellan($('#off-canvas-menu'), {
-				threshold: 0,
-				offset: getHeaderHeight()
-			});
-
-			new Foundation.Magellan($('#main-menu'), {
-				threshold: 0,
-				offset: 40
-			});
-			new Foundation.SmoothScroll($('.js-magellan'), {
-				threshold: 0,
-				offset: getHeaderHeight()
-			});
-
-			magellan.$element.on('click.zf.magellan', 'a[href^="#"]', function () {
-				$('#off-canvas').foundation('close', function () {});
-				$('#hamburger').removeClass('is-active');
-			});
 		}
 	}
 
@@ -144,15 +132,6 @@
   * Document body intialization.
   */
 	function initBody() {
-		/*
-  if(!is_medium_up && !has_body_padding) {
-  $(document.body).css('paddingTop', (getHeaderHeight() + 'px'));
-  	has_body_padding = true;
-  } else if(is_medium_up && has_body_padding) {
-  $(document.body).removeAttr('style');
-  	has_body_padding = false;
-  }
-  */
 		$(document.body).css('paddingTop', getHeaderHeight() + 'px');
 	}
 
@@ -188,236 +167,6 @@
 	}
 
 	/**
-  * Popup image on gallery.
-  */
-	function initGallery() {
-		if ($().magnificPopup) {
-			$('.js-image').magnificPopup({
-				type: 'image',
-				mainClass: 'mfp-with-zoom',
-				gallery: {
-					enabled: true
-				},
-				zoom: {
-					// enabled: true,
-					duration: 300,
-					easing: 'ease-in-out'
-				}
-			});
-		}
-	}
-
-	/**
-  * Contact form.
-  */
-	function initContactForm() {
-		contactForm = new Vue({
-			el: '#contact-app',
-			data: {
-				success: false,
-				name: '',
-				email: '',
-				phone: '',
-				message: '',
-				hasError: false,
-				hasErrors: {
-					name: false,
-					email: false,
-					phone: false,
-					message: false,
-					captcha: false
-				},
-				errors: {
-					name: '',
-					email: '',
-					phone: '',
-					message: '',
-					captcha: ''
-				},
-				captcha: null
-			},
-
-			mounted: function mounted() {},
-
-			methods: {
-				submit: function submit(e) {
-					e.preventDefault();
-
-					this.loading();
-					this.validate();
-				},
-
-				post: function post() {
-					var that = this;
-
-					$.ajax({
-						type: 'POST',
-						url: 'contact.php',
-						data: {
-							name: that.name,
-							email: that.email,
-							phone: that.phone,
-							message: that.message
-						},
-						dataType: 'json',
-						success: function success(response) {
-							that.hasError = response.hasError;
-							that.hasErrors = response.hasErrors;
-							that.errors = response.errors;
-							that.success = response.success;
-
-							if (that.success) {
-								that.clear();
-							}
-
-							that.finished();
-						},
-						error: function error(err) {
-							console.error(err);
-
-							that.finished();
-						}
-					});
-				},
-
-				validate: function validate() {
-					if (this.name === '') {
-						this.errors.name = 'Name is required.';
-						this.hasErrors.name = true;
-					} else {
-						this.hasErrors.name = false;
-					}
-
-					var emailRegEx = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-					if (this.email === '') {
-						this.errors.email = 'Email is required.';
-						this.hasErrors.email = true;
-					} else if (!emailRegEx.test(this.email)) {
-						this.errors.email = 'Email is invalid.';
-						this.hasErrors.email = true;
-					} else {
-						this.hasErrors.email = false;
-					}
-
-					var phoneRegEx = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/;
-					if (this.phone !== '' && !phoneRegEx.test(this.phone)) {
-						this.errors.phone = 'Phone is invalid.';
-						this.hasErrors.phone = true;
-					} else {
-						this.hasErrors.phone = false;
-					}
-
-					if (this.message === '') {
-						this.errors.message = 'Message is required.';
-						this.hasErrors.message = true;
-					} else {
-						this.hasErrors.message = false;
-					}
-
-					if (this.hasErrors.name || this.hasErrors.email || this.hasErrors.phone || this.hasErrors.message) {
-						this.hasError = true;
-					}
-
-					this.validateRecaptcha();
-				},
-
-				validateRecaptcha: function validateRecaptcha() {
-					var that = this;
-					that.hasError = true;
-
-					if (grecaptcha && that.captcha !== null) {
-						var token = grecaptcha.getResponse(that.captcha);
-
-						if (token !== '') {
-							if (that.hasErrors.captcha) {
-								$.ajax({
-									type: 'GET',
-									url: 'recaptcha.php',
-									data: {
-										url: 'https://www.google.com/recaptcha/api/siteverify',
-										secret: RECAPTCHA_SECRET,
-										response: token
-									},
-									success: function success(response) {
-										that.errors.captcha = !response.success;
-
-										// Success
-										if (!that.errors.captcha) {
-											that.hasError = false;
-
-											if (!that.hasError) {
-												that.post();
-											} else {
-												that.finished();
-											}
-										} else {
-											that.errors.captcha = 'Invalid reCaptcha.';
-											that.hasErrors.captcha = true;
-											that.finished();
-										}
-									},
-									error: function error(err) {
-										that.errors.captcha = 'Invalid reCaptcha.';
-										that.hasErrors.captcha = true;
-										that.finished();
-									}
-								});
-							} else {
-								this.post();
-							}
-						} else {
-							this.errors.captcha = 'Verify that you are not a robot';
-							this.hasErrors.captcha = true;
-							that.finished();
-						}
-					}
-				},
-
-				clear: function clear() {
-					this.name = '';
-					this.email = '';
-					this.phone = '';
-					this.message = '';
-					this.hasError = false;
-					this.hasErrors = {
-						name: false,
-						email: false,
-						phone: false,
-						message: false,
-						captcha: false
-					};
-					this.errors = {
-						name: '',
-						email: '',
-						phone: '',
-						message: '',
-						captcha: ''
-					};
-				},
-
-				loading: function loading() {
-					$(this.$el).find('[type="submit"]').addClass('sending');
-				},
-
-				finished: function finished() {
-					$(this.$el).find('[type="submit"]').removeClass('sending');
-				}
-			}
-		});
-	}
-
-	/**
-  * On Google Recaptcha on load listener.
-  */
-	window.onRecaptchaLoad = function () {
-		captcha = grecaptcha.render('recaptcha', {
-			'sitekey': RECAPTCHA_KEY
-		});
-
-		contactForm.captcha = captcha;
-	};
-
-	/**
   * Animate elements on scroll.
   */
 	function animate() {
@@ -449,6 +198,15 @@
 	}
 
 	/**
+  * Get the inner header height.
+  *
+  * @return {int} The height of the inner header in px.
+  */
+	function getInnerHeaderHeight() {
+		return $('#container > header > .inner').innerHeight();
+	}
+
+	/**
   * Window resize listener.
   */
 	$(window).resize(function () {
@@ -472,7 +230,8 @@
 
 		console.log('%c%s', siteNameStyles, siteName);
 		log(siteDescription);
-		log('Developed by: Den Isahac https://www.denisahac.xyz/');
+		log('Designed by: Nat Cheng http://natcheng.com/');
+		log('Coded by: Den Isahac https://www.denisahac.xyz/');
 	}
 
 	/**

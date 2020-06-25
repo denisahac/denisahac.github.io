@@ -28,6 +28,7 @@ gulp.task('sass', function() {
 			includePaths: [
 				'node_modules/foundation-sites/scss/',
 				'node_modules/owl.carousel/src/scss/',
+        'node_modules/hamburgers/_sass/hamburgers/'
 			]
 		}).on('error', sass.logError))
 		.pipe(postcss(plugins))
@@ -105,6 +106,7 @@ gulp.task('concat', function() {
 			'node_modules/foundation-sites/dist/js/plugins/foundation.util.imageLoader.js',
 			'node_modules/foundation-sites/dist/js/plugins/foundation.offcanvas.js',
 			'node_modules/foundation-sites/dist/js/plugins/foundation.toggler.js',
+      'node_modules/foundation-sites/dist/js/plugins/foundation.equalizer.js',
 			'node_modules/owl.carousel/dist/owl.carousel.js',
 			'node_modules/magnific-popup/dist/jquery.magnific-popup.js',
 			'node_modules/wowjs/dist/wow.js',
