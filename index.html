@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 
-	<title>Nordanne Isahac</title>
+	<title>Nordanne Isahac | Web Developer</title>
 
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 
@@ -58,6 +58,11 @@
     		    </header>
 
     		    <p id="subtitle" class="h6"><span itemprop="title">Web Developer</span></p>
+    		    <ul id="skills">
+			<li data-text="wp">WordPress</li>
+			<li data-text="wc">WooCommerce</li>
+			<li data-text="openmage">OpenMage</li>
+    		    </ul>
     		    <p id="description" class="wow fadeInUp" data-wow-delay="0.3s" itemprop="description" style="visibility: visible; animation-delay: 0.3s;">Hello World! I'm a Web Developer with over a decade of experience, specializing in WordPress/WooCommerce development.</p>
     		    <footer>
     		    	<ul class="links wow fadeInUp" data-wow-delay="0.6s" style="visibility: visible; animation-delay: 0.6s;">
@@ -98,9 +103,47 @@
 	    margin-bottom: 0.25rem;
 	}
 
-	#sub-title {
-
+	#subtitle {
+	    margin-bottom: 0.25rem;
 	}
+
+	#skills {
+	    display: flex;
+	    flex-wrap: wrap;
+	    margin-bottom: 0.75rem;
+	    list-style: none;
+	}
+
+	#skills li {
+	    display: inline-block;
+	    margin-right: 4px;
+	    margin-bottom: 4px;
+	    padding: 2px 6px;
+	    border: 1px solid;
+	    border-radius: 2px;
+	}
+
+	/*
+	#skills li[data-text="wp"] {
+	    background: #207196;
+	}
+
+	#skills li[data-text="wc"] {
+	    background: #7f55b4;
+	}
+
+	#skills li[data-text="magento"] {
+	    background: #ed7921;
+	}
+
+	#skills li[data-text="openmage"] {
+	    background: #f30f6d;
+	}
+
+	#skills li[data-text="drupal"] {
+	    background: #0297d8;
+	}
+	*/
 
 	img.img {
 	    width: 48px;
