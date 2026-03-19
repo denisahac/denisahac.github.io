@@ -1,0 +1,237 @@
+/* Modern Override — Black & White, Large Type, Centered */
+
+/* ── Font ── */
+body, h1, h2, h3, h4, h5, h6, p, a, span, li, button {
+	font-family: 'Space Mono', Arial, sans-serif !important;
+}
+
+/* ── Wave canvas ── */
+#wave-bg {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 0;
+	pointer-events: none;
+}
+
+#container {
+	position: relative;
+	z-index: 1;
+}
+
+#theme-toggle {
+	z-index: 100;
+}
+
+/* ── CSS Custom Properties (Dark = default) ── */
+:root {
+	--bg: #000;
+	--text: #fff;
+	--text-muted: rgba(255, 255, 255, 0.5);
+	--text-body: rgba(255, 255, 255, 0.7);
+	--icon-fill: rgba(255, 255, 255, 0.4);
+	--icon-hover: #fff;
+	--bar-color: #fff;
+}
+
+/* ── Light Theme ── */
+[data-theme="light"] {
+	--bg: #fff;
+	--text: #000;
+	--text-muted: rgba(0, 0, 0, 0.45);
+	--text-body: rgba(0, 0, 0, 0.65);
+	--icon-fill: rgba(0, 0, 0, 0.35);
+	--icon-hover: #000;
+	--bar-color: #000;
+}
+
+/* Auto-detect OS preference */
+@media (prefers-color-scheme: light) {
+	:root:not([data-theme="dark"]) {
+		--bg: #fff;
+		--text: #000;
+		--text-muted: rgba(0, 0, 0, 0.45);
+		--text-body: rgba(0, 0, 0, 0.65);
+		--icon-fill: rgba(0, 0, 0, 0.35);
+		--icon-hover: #000;
+		--bar-color: #000;
+	}
+}
+
+body {
+	background-color: var(--bg) !important;
+	color: var(--text) !important;
+	transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+#app {
+	justify-content: center !important;
+	text-align: left;
+}
+
+#app > main {
+	width: 90% !important;
+	max-width: 1200px;
+	margin-left: auto !important;
+	margin-right: auto;
+}
+
+/* ── Large, bold name with typewriter ── */
+#name {
+	font-size: clamp(3rem, 8vw, 6rem) !important;
+	color: var(--text) !important;
+	letter-spacing: 4px;
+	margin-bottom: 0.75rem !important;
+	text-transform: uppercase;
+	transition: color 0.4s ease;
+}
+
+/* Typewriter cursor */
+#name .typewriter-cursor {
+	display: inline-block;
+	width: 3px;
+	margin-left: 4px;
+	background-color: var(--text);
+	animation: blink 0.7s step-end infinite;
+	vertical-align: baseline;
+	height: 0.85em;
+}
+
+@keyframes blink {
+	0%, 100% { opacity: 1; }
+	50% { opacity: 0; }
+}
+
+/* ── Subtitle ── */
+#subtitle {
+	margin-bottom: 1.5rem !important;
+}
+
+#subtitle span {
+	font-family: 'Inter', Arial, sans-serif !important;
+	font-size: clamp(1rem, 2.5vw, 1.5rem) !important;
+	color: var(--text-muted);
+	letter-spacing: 6px;
+	text-transform: uppercase;
+	font-weight: 400;
+	transition: color 0.4s ease;
+}
+
+/* ── Hide skills ── */
+#skills {
+	display: none !important;
+}
+
+/* ── Description ── */
+#description {
+	font-family: 'Inter', Arial, sans-serif !important;
+	font-size: clamp(1.1rem, 2vw, 1.4rem);
+	color: var(--text-body);
+	line-height: 1.8;
+	max-width: 800px;
+	margin-bottom: 2rem;
+	transition: color 0.4s ease;
+}
+
+/* ── Header bar accent ── */
+article header .bar {
+	background-color: var(--bar-color) !important;
+	left: 0 !important;
+	transform: none;
+	bottom: -4px;
+	height: 2px !important;
+	width: 3rem !important;
+	transition: background-color 0.4s ease;
+}
+
+/* ── Social icons ── */
+article footer ul.links {
+	display: flex;
+	justify-content: flex-start;
+	gap: 1.5rem;
+}
+
+article footer ul.links > li {
+	margin-right: 0 !important;
+}
+
+svg path {
+	fill: var(--icon-fill) !important;
+	transition: fill 0.3s ease;
+}
+
+a:hover svg path,
+a:focus svg path {
+	fill: var(--icon-hover) !important;
+}
+
+/* ── Theme toggle button ── */
+#theme-toggle {
+	position: fixed;
+	top: 1.5rem;
+	right: 1.5rem;
+	width: 44px;
+	height: 44px;
+	border: 1px solid var(--icon-fill);
+	border-radius: 50%;
+	background: transparent;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	transition: border-color 0.3s ease, transform 0.3s ease;
+	z-index: 100;
+	padding: 0;
+}
+
+#theme-toggle:hover {
+	border-color: var(--text);
+	transform: scale(1.1);
+}
+
+#theme-toggle svg {
+	width: 20px;
+	height: 20px;
+	fill: var(--text);
+	transition: fill 0.4s ease;
+}
+
+#theme-toggle svg path {
+	fill: var(--text) !important;
+}
+
+/* Show sun in dark, moon in light */
+#theme-toggle .icon-sun { display: block; }
+#theme-toggle .icon-moon { display: none; }
+
+[data-theme="light"] #theme-toggle .icon-sun { display: none; }
+[data-theme="light"] #theme-toggle .icon-moon { display: block; }
+
+@media (prefers-color-scheme: light) {
+	:root:not([data-theme="dark"]) #theme-toggle .icon-sun { display: none; }
+	:root:not([data-theme="dark"]) #theme-toggle .icon-moon { display: block; }
+}
+
+/* ── Staggered fade-in animations ── */
+@keyframes fadeUp {
+	from {
+		opacity: 0;
+		transform: translateY(20px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+.fade-in {
+	opacity: 0;
+	animation: fadeUp 0.8s ease forwards;
+}
+
+.fade-in-d1 { animation-delay: 0.6s; }
+.fade-in-d2 { animation-delay: 1.0s; }
+.fade-in-d3 { animation-delay: 1.4s; }
+.fade-in-d4 { animation-delay: 1.8s; }

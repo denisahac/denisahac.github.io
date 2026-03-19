@@ -26,9 +26,10 @@
 	<![endif]-->
 	<meta name="msapplication-TileColor" content="#FFFFFF">
 	<meta name="msapplication-TileImage" content="/favicon.png">
-  <meta name="theme-color" content="#434242">
+  <meta name="theme-color" content="#000000">
 
 	<link rel="stylesheet" href="assets/dist/css/app.css" media="screen">
+	<link rel="stylesheet" href="assets/dist/css/style.css" media="screen">
 	
 	<!-- Google tag (gtag.js) -->
     	<script async src="https://www.googletagmanager.com/gtag/js?id=G-3D7WCJ87N4"></script>
@@ -42,25 +43,30 @@
 	<meta name="msvalidate.01" content="35BE45EF547CC60FDDEF06FE11224280" />
 
 </head>
-<body class="font font--inconsolata" itemscope itemtype="http://schema.org/Person" data-since="2013">
+<body itemscope itemtype="http://schema.org/Person" data-since="2013">
+    <canvas id="wave-bg"></canvas>
+    <button id="theme-toggle" title="Toggle theme" aria-label="Toggle light/dark theme">
+	<svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18a6 6 0 1 1 0-12 6 6 0 0 1 0 12zm0-2a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM11 1h2v3h-2V1zm0 19h2v3h-2v-3zM3.515 4.929l1.414-1.414L7.05 5.636 5.636 7.05 3.515 4.93zM16.95 18.364l1.414-1.414 2.121 2.121-1.414 1.414-2.121-2.121zm2.121-14.85l1.414 1.415-2.121 2.121-1.414-1.414 2.121-2.121zM5.636 16.95l1.414 1.414-2.121 2.121-1.414-1.414 2.121-2.121zM23 11v2h-3v-2h3zM4 11v2H1v-2h3z"/></svg>
+	<svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 7a7 7 0 0 0 12 4.9v.1c0 5.523-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2h.1A6.979 6.979 0 0 0 10 7zm-6 5a8 8 0 0 0 15.062 3.762A9 9 0 0 1 8.238 4.938 7.999 7.999 0 0 0 4 12z"/></svg>
+    </button>
     <div id="container">
     	<div id="app">
     	    <main>
     		<article>
     		    <header>
-    		    	<span class="bar wow slideInLeft animated" data-wow-delay="0.3s" style="visibility: visible; animation-delay: 0.3s;"></span>
-    		    	<h1 id="name" class="h4 wow fadeInUp" itemprop="name" style="visibility: visible;">Nordanne Isahac</h1>
+    		    	<span class="bar fade-in fade-in-d4" style="visibility: visible;"></span>
+    		    	<h1 id="name" class="h4" itemprop="name"></h1>
     		    </header>
 
-    		    <p id="subtitle" class="h6"><span itemprop="title">Web Developer</span></p>
+    		    <p id="subtitle" class="h6 fade-in fade-in-d1"><span itemprop="title">Web Developer</span></p>
     		    <ul id="skills">
 			<li data-text="wp">WordPress</li>
 			<li data-text="wc">WooCommerce</li>
 			<li data-text="openmage">OpenMage</li>
     		    </ul>
-    		    <p id="description" class="wow fadeInUp" data-wow-delay="0.3s" itemprop="description" style="visibility: visible; animation-delay: 0.3s;">Hello World! I'm a Web Developer with over a decade of experience, specializing in WordPress/WooCommerce development.</p>
+    		    <p id="description" class="fade-in fade-in-d2" itemprop="description">Hello World! I'm a Web Developer with over a decade of experience, specializing in WordPress/WooCommerce development.</p>
     		    <footer>
-    		    	<ul class="links wow fadeInUp" data-wow-delay="0.6s" style="visibility: visible; animation-delay: 0.6s;">
+    		    	<ul class="links fade-in fade-in-d3">
     		    	    <li>
     		    		<a href="mailto:den.isahac@gmail.com" title="Shoot me an email" itemprop="email">
     		    		    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M12 12.713l-11.985-9.713h23.97l-11.985 9.713zm0 2.574l-12-9.725v15.438h24v-15.438l-12 9.725z" fill="#9c9c9c"></path>
@@ -90,7 +96,7 @@
     -->
 
     <noscript id="deferred-styles"> 
-	<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Inconsolata:400,700">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Inter:wght@400;500;700&display=swap">
     </noscript>
 
     <style type="text/css">
@@ -163,10 +169,134 @@
     	    document.body.appendChild(replacement)
     	    addStylesNode.parentElement.removeChild(addStylesNode);
     	};
-    	var raf = requestAnimationFrame || mozRequestAnimationFrame ||
-    	webkitRequestAnimationFrame || msRequestAnimationFrame;
+    	var raf = window.requestAnimationFrame || window.mozRequestAnimationFrame ||
+    	window.webkitRequestAnimationFrame || window.msRequestAnimationFrame;
     	if (raf) raf(function() { window.setTimeout(loadDeferredStyles, 0); });
     	else window.addEventListener('load', loadDeferredStyles);
+
+    	// Theme toggle
+    	(function() {
+    	    var root = document.documentElement;
+    	    var toggle = document.getElementById('theme-toggle');
+    	    var stored = localStorage.getItem('theme');
+    	    if (stored) root.setAttribute('data-theme', stored);
+
+    	    toggle.addEventListener('click', function() {
+    	        var current = root.getAttribute('data-theme');
+    	        var isDark = !current
+    	            ? window.matchMedia('(prefers-color-scheme: light)').matches ? false : true
+    	            : current === 'dark';
+    	        var next = isDark ? 'light' : 'dark';
+    	        root.setAttribute('data-theme', next);
+    	        localStorage.setItem('theme', next);
+    	    });
+    	})();
+
+    	// Typewriter for name
+    	(function() {
+    	    var el = document.getElementById('name');
+    	    var text = 'Nordanne Isahac';
+    	    var i = 0;
+    	    var cursor = document.createElement('span');
+    	    cursor.className = 'typewriter-cursor';
+    	    cursor.innerHTML = '&nbsp;';
+    	    el.appendChild(cursor);
+
+    	    function type() {
+    	        if (i < text.length) {
+    	            el.insertBefore(document.createTextNode(text.charAt(i)), cursor);
+    	            i++;
+    	            setTimeout(type, 80 + Math.random() * 60);
+    	        } else {
+    	            setTimeout(function() { cursor.style.display = 'none'; }, 2000);
+    	        }
+    	    }
+    	    setTimeout(type, 300);
+    	})();
+
+    	// Floating shapes background
+    	(function() {
+    	    var canvas = document.getElementById('wave-bg');
+    	    var ctx = canvas.getContext('2d');
+    	    var w, h;
+    	    var shapes = [];
+    	    var numShapes = 14;
+    	    var types = ['square', 'circle', 'rectangle', 'triangle'];
+    	    var color = '247, 181, 65';
+
+    	    function resize() {
+    	        w = canvas.width = window.innerWidth;
+    	        h = canvas.height = window.innerHeight;
+    	    }
+    	    window.addEventListener('resize', resize);
+    	    resize();
+
+    	    for (var i = 0; i < numShapes; i++) {
+    	        shapes.push({
+    	            type: types[Math.floor(Math.random() * types.length)],
+    	            x: Math.random() * 1.2 - 0.1,
+    	            y: Math.random() * 1.2 - 0.1,
+    	            size: 10 + Math.random() * 80,
+    	            speedX: (Math.random() - 0.5) * 0.3,
+    	            speedY: (Math.random() - 0.5) * 0.2,
+    	            rotation: Math.random() * Math.PI * 2,
+    	            rotSpeed: (Math.random() - 0.5) * 0.008,
+    	            opacity: 0.08 + Math.random() * 0.12
+    	        });
+    	    }
+
+    	    function drawShape(s) {
+    	        var cx = s.x * w;
+    	        var cy = s.y * h;
+    	        ctx.save();
+    	        ctx.translate(cx, cy);
+    	        ctx.rotate(s.rotation);
+    	        ctx.strokeStyle = 'rgb(' + color + ')';
+    	        ctx.lineWidth = 1.5;
+
+    	        if (s.type === 'square') {
+    	            var half = s.size / 2;
+    	            ctx.strokeRect(-half, -half, s.size, s.size);
+    	        } else if (s.type === 'circle') {
+    	            ctx.beginPath();
+    	            ctx.arc(0, 0, s.size / 2, 0, Math.PI * 2);
+    	            ctx.stroke();
+    	        } else if (s.type === 'rectangle') {
+    	            var rw = s.size;
+    	            var rh = s.size * 0.5;
+    	            ctx.strokeRect(-rw / 2, -rh / 2, rw, rh);
+    	        } else if (s.type === 'triangle') {
+    	            var r = s.size / 2;
+    	            ctx.beginPath();
+    	            ctx.moveTo(0, -r);
+    	            ctx.lineTo(r * Math.cos(Math.PI / 6), r * Math.sin(Math.PI / 6));
+    	            ctx.lineTo(-r * Math.cos(Math.PI / 6), r * Math.sin(Math.PI / 6));
+    	            ctx.closePath();
+    	            ctx.stroke();
+    	        }
+
+    	        ctx.restore();
+    	    }
+
+    	    function draw() {
+    	        ctx.clearRect(0, 0, w, h);
+    	        for (var i = 0; i < shapes.length; i++) {
+    	            var s = shapes[i];
+    	            s.x += s.speedX / w;
+    	            s.y += s.speedY / h;
+    	            s.rotation += s.rotSpeed;
+
+    	            if (s.x * w > w + 100) s.x = -100 / w;
+    	            if (s.x * w < -100) s.x = (w + 100) / w;
+    	            if (s.y * h > h + 100) s.y = -100 / h;
+    	            if (s.y * h < -100) s.y = (h + 100) / h;
+
+    	            drawShape(s);
+    	        }
+    	        requestAnimationFrame(draw);
+    	    }
+    	    draw();
+    	})();
     </script>
 </body>
 </html>
