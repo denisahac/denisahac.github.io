@@ -220,7 +220,10 @@
 
     	    function type() {
     	        if (i < text.length) {
-    	            el.insertBefore(document.createTextNode(text.charAt(i)), cursor);
+    	            var span = document.createElement('span');
+    	            span.className = 'char';
+    	            span.textContent = text.charAt(i) === ' ' ? '\u00A0' : text.charAt(i);
+    	            el.insertBefore(span, cursor);
     	            i++;
     	            setTimeout(type, 80 + Math.random() * 60);
     	        } else {
@@ -237,8 +240,11 @@
     	    var w, h;
     	    var shapes = [];
     	    var numShapes = 14;
-    	    var types = ['square', 'circle', 'rectangle', 'triangle'];
+    	    var types = ['square', 'circle', 'triangle'];
     	    var color = '247, 181, 65';
+    	    var mouseX = -9999, mouseY = -9999;
+    	    var avoidRadius = 120;
+    	    var avoidStrength = 3;
 
     	    function resize() {
     	        w = canvas.width = window.innerWidth;
@@ -246,6 +252,15 @@
     	    }
     	    window.addEventListener('resize', resize);
     	    resize();
+
+    	    document.addEventListener('mousemove', function(e) {
+    	        mouseX = e.clientX;
+    	        mouseY = e.clientY;
+    	    });
+    	    document.addEventListener('mouseleave', function() {
+    	        mouseX = -9999;
+    	        mouseY = -9999;
+    	    });
 
     	    for (var i = 0; i < numShapes; i++) {
     	        shapes.push({
@@ -277,10 +292,6 @@
     	            ctx.beginPath();
     	            ctx.arc(0, 0, s.size / 2, 0, Math.PI * 2);
     	            ctx.stroke();
-    	        } else if (s.type === 'rectangle') {
-    	            var rw = s.size;
-    	            var rh = s.size * 0.5;
-    	            ctx.strokeRect(-rw / 2, -rh / 2, rw, rh);
     	        } else if (s.type === 'triangle') {
     	            var r = s.size / 2;
     	            ctx.beginPath();
@@ -298,6 +309,19 @@
     	        ctx.clearRect(0, 0, w, h);
     	        for (var i = 0; i < shapes.length; i++) {
     	            var s = shapes[i];
+    	            var cx = s.x * w;
+    	            var cy = s.y * h;
+
+    	            // Mouse avoidance
+    	            var dx = cx - mouseX;
+    	            var dy = cy - mouseY;
+    	            var dist = Math.sqrt(dx * dx + dy * dy);
+    	            if (dist < avoidRadius && dist > 0) {
+    	                var force = (avoidRadius - dist) / avoidRadius * avoidStrength;
+    	                s.x += (dx / dist) * force / w;
+    	                s.y += (dy / dist) * force / h;
+    	            }
+
     	            s.x += s.speedX / w;
     	            s.y += s.speedY / h;
     	            s.rotation += s.rotSpeed;

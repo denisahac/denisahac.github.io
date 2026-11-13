@@ -289,3 +289,13 @@ a:focus svg path {
 .fade-in-d2 { animation-delay: 1.0s; }
 .fade-in-d3 { animation-delay: 1.4s; }
 .fade-in-d4 { animation-delay: 1.8s; }
+
+/* Character hover slide-up */
+#name .char {
+    display: inline-block;
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    cursor: default;
+}
+#name .char:hover {
+    transform: translateY(-0.15em);
+}
