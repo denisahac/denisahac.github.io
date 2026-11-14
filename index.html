@@ -2,341 +2,684 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<title>Nordanne Isahac | Web Developer</title>
-
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-
-	<meta name="HandheldFriendly" content="True">
-	<meta name="MobileOptimized" content="320">
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+	<title>Nordanne Isahac | WordPress &amp; WooCommerce Developer</title>
+	<meta name="description" content="Hello World! I'm Nordanne Isahac, a WooCommerce developer with over a decade of experience building WordPress stores that are fast, dependable, and easy to run.">
+	<link rel="canonical" href="https://denisahac.xyz/">
 	<meta name="application-name" content="Nordanne Isahac">
+	<meta name="author" content="Nordanne Isahac">
+	<meta name="theme-color" content="#f4f1ec">
+	<meta name="msvalidate.01" content="35BE45EF547CC60FDDEF06FE11224280">
 
-	<meta name="description" content="Hello World! I'm a Web Developer with over a decade of experience, specializing in WordPress/WooCommerce development.">
+	<!-- Open Graph -->
+	<meta property="og:type" content="profile">
+	<meta property="og:title" content="Nordanne Isahac | WordPress &amp; WooCommerce Developer">
+	<meta property="og:description" content="I build fast, dependable WooCommerce stores that are simple to run and made to sell.">
+	<meta property="og:url" content="https://denisahac.xyz/">
+	<meta property="og:image" content="https://denisahac.xyz/assets/images/nordanne-isahac-v2.jpg">
+	<meta property="og:image:alt" content="Portrait of Nordanne Isahac">
 
-	<meta name="mobile-web-app-capable" content="yes">
-	<meta name="apple-mobile-web-app-capable" content="yes">
-	<meta name="apple-mobile-web-app-title" content="Nordanne Isahac - Hello World! I'm a Web Developer with over a decade of experience, specializing in WordPress/WooCommerce development.">
+	<!-- Twitter -->
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:title" content="Nordanne Isahac | WordPress &amp; WooCommerce Developer">
+	<meta name="twitter:description" content="I build fast, dependable WooCommerce stores that are simple to run and made to sell.">
+	<meta name="twitter:image" content="https://denisahac.xyz/assets/images/nordanne-isahac-v2.jpg">
 
-	<link rel="apple-touch-icon" href="/favicon.png">
-	<link rel="icon" href="/favicon.png">
-	<!--[if IE]>
-		<link rel="shortcut icon" href="/favicon.ico">
-	<![endif]-->
-	<meta name="msapplication-TileColor" content="#FFFFFF">
-	<meta name="msapplication-TileImage" content="/favicon.png">
-  <meta name="theme-color" content="#000000">
+	<!-- Icons (portrait favicon) -->
+	<link rel="apple-touch-icon" href="apple-touch-icon.png">
+	<link rel="icon" href="favicon.ico" sizes="any">
+	<link rel="icon" href="favicon.png" type="image/png" sizes="64x64">
 
-	<link rel="stylesheet" href="assets/dist/css/app.css" media="screen">
-	<link rel="stylesheet" href="assets/dist/css/style.css" media="screen">
-	
-	<!-- Google tag (gtag.js) -->
-    	<script async src="https://www.googletagmanager.com/gtag/js?id=G-3D7WCJ87N4"></script>
-    	<script>
-      	  window.dataLayer = window.dataLayer || [];
-      	  function gtag(){dataLayer.push(arguments);}
-      	  gtag('js', new Date());
+	<!-- Structured data -->
+	<script type="application/ld+json">
+	{
+		"@context": "https://schema.org",
+		"@type": "Person",
+		"name": "Nordanne Isahac",
+		"url": "https://denisahac.xyz/",
+		"jobTitle": "WooCommerce Developer",
+		"email": "mailto:den.isahac@gmail.com",
+		"description": "WooCommerce developer with over a decade of experience building fast, dependable WordPress stores.",
+		"sameAs": [
+			"https://github.com/denisahac",
+			"https://www.linkedin.com/in/nordanne-isahac-176a3086/"
+		]
+	}
+	</script>
 
-      	  gtag('config', 'G-3D7WCJ87N4');
-    	</script>
-	<meta name="msvalidate.01" content="35BE45EF547CC60FDDEF06FE11224280" />
+	<!-- Mark as JS-enabled before first paint (reveal animation anti-FOUC) -->
+	<script>document.documentElement.className += ' js';</script>
 
+	<!-- Google tag (gtag.js) — the one external script, kept for analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-3D7WCJ87N4"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+		gtag('config', 'G-3D7WCJ87N4');
+	</script>
+
+	<style>
+		/* ============================================================
+		   Nordanne Isahac — v4.0.0 (sheet / editorial fusion)
+		   CRITICAL CSS: above-the-fold (reset, sheet, topbar, hero).
+		   The rest lives in the footer <style> before </body>.
+		   Font: Arial (with the requested fallback chain). Light mode.
+		   ============================================================ */
+
+		:root {
+			/* Palette — warm neutral paper + deep ochre accent */
+			--paper-out:  #e9e3d8;   /* backdrop behind the sheet */
+			--paper:      #f4f1ec;   /* the sheet */
+			--paper-2:    #ece7de;
+			--ink:        #1c1b18;
+			--ink-2:      #46423b;
+			--muted:      #6b665c;
+			--line:       #ddd7cc;
+			--accent:     #a2651f;   /* fills, rules, larger elements */
+			--accent-deep:#85521d;   /* small accent text */
+
+			/* Rhythm */
+			--inset:     clamp(10px, 1.8vw, 26px);   /* sheet frame margin */
+			--gutter:    clamp(20px, 5vw, 40px);
+			--section-y: clamp(60px, 9vw, 116px);
+			--wrap:      1120px;
+
+			--shadow-lg: 0 30px 60px -28px rgba(28, 27, 24, .30);
+		}
+
+		/* ---------- Reset ---------- */
+		*, *::before, *::after { box-sizing: border-box; }
+		* { margin: 0; padding: 0; }
+		html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; scroll-padding-top: 84px; }
+
+		body {
+			font-family: Arial, sans-serif, serif;
+			background: var(--paper-out);
+			color: var(--ink);
+			line-height: 1.6;
+			-webkit-font-smoothing: antialiased;
+			text-rendering: optimizeLegibility;
+			overflow-x: hidden;
+		}
+
+		img, picture, svg { display: block; max-width: 100%; }
+		a { color: inherit; text-decoration: none; }
+		ul, ol { list-style: none; }
+
+		::selection { background: var(--accent); color: var(--paper); }
+
+		/* ---------- The sheet (framed page) ---------- */
+		.sheet {
+			margin: var(--inset);
+			background: var(--paper);
+			border: 1px solid var(--line);
+			min-height: calc(100svh - (2 * var(--inset)));
+			display: flex;
+			flex-direction: column;
+		}
+
+		/* ---------- Layout helpers (above the fold) ---------- */
+		.wrap {
+			width: 100%;
+			max-width: var(--wrap);
+			margin-inline: auto;
+			padding-inline: var(--gutter);
+		}
+		.skip-link {
+			position: absolute; left: -9999px; top: 0;
+			background: var(--ink); color: var(--paper);
+			padding: 12px 18px; z-index: 200; border-radius: 0 0 6px 0;
+		}
+		.skip-link:focus { left: var(--inset); top: var(--inset); }
+
+		/* ---------- Type primitives (above the fold) ---------- */
+		.eyebrow {
+			font-size: .78rem; font-weight: 700;
+			letter-spacing: .15em; text-transform: uppercase;
+			color: var(--accent-deep);
+			margin-bottom: 22px;
+			max-width: 100%;
+		}
+		.eyebrow::before {
+			content: ""; display: inline-block;
+			width: 26px; height: 2px;
+			background: var(--accent);
+			vertical-align: middle;
+			margin-right: 12px;
+		}
+
+		h1, h2, h3 { font-weight: 700; letter-spacing: -.02em; line-height: 1.03; color: var(--ink); }
+
+		/* ---------- Top bar (sticky within the sheet) ---------- */
+		.topbar {
+			position: sticky; top: 0; z-index: 100;
+			background: var(--paper);
+			border-bottom: 1px solid var(--line);
+		}
+		.topbar-inner {
+			display: flex; align-items: center; justify-content: space-between;
+			height: 72px;
+		}
+		.brand {
+			display: inline-flex; align-items: center; gap: 12px;
+			font-weight: 700; letter-spacing: -.01em; font-size: 1.02rem;
+			color: var(--ink);
+		}
+		.brand .mark {
+			width: 36px; height: 36px; flex: none;
+			border-radius: 50%; overflow: hidden;
+			border: 1px solid var(--line);
+			background: var(--paper-2);
+		}
+		.brand .mark img {
+			width: 100%; height: 100%; object-fit: cover; object-position: 50% 28%;
+			filter: grayscale(1) contrast(1.05);
+			transition: filter .5s ease;
+		}
+		.brand:hover .mark img { filter: grayscale(0) contrast(1.02); }
+
+		.topnav { display: flex; align-items: center; gap: 28px; }
+		.topnav a {
+			font-size: .92rem; color: var(--ink-2); position: relative;
+			transition: color .25s ease;
+		}
+		.topnav a:not(.nav-cta)::after {
+			content: ""; position: absolute; left: 0; bottom: -5px;
+			width: 100%; height: 1.5px; background: var(--accent);
+			transform: scaleX(0); transform-origin: left;
+			transition: transform .35s cubic-bezier(.22, 1, .36, 1);
+		}
+		.topnav a:hover { color: var(--ink); }
+		.topnav a:not(.nav-cta):hover::after,
+		.topnav a:not(.nav-cta):focus-visible::after { transform: scaleX(1); }
+		.topnav .nav-cta { color: var(--accent-deep); font-weight: 700; }
+		.topnav .nav-cta:hover { color: var(--accent); }
+		@media (max-width: 620px) { .topnav .nav-link { display: none; } }
+
+		/* Arrow (external / mail) */
+		.arw {
+			display: inline-block; margin-left: .32em;
+			transition: transform .3s cubic-bezier(.22, 1, .36, 1);
+		}
+		a:hover .arw, a:focus-visible .arw { transform: translate(2px, -2px); }
+
+		/* ---------- Hero (two-column: statement + at-a-glance) ---------- */
+		.hero { padding-block: clamp(52px, 8vw, 100px) clamp(52px, 8vw, 96px); }
+		.hero-grid {
+			display: grid;
+			grid-template-columns: 1.1fr 0.9fr;
+			gap: clamp(32px, 5vw, 68px);
+			align-items: center;
+		}
+		.hero-text { min-width: 0; }
+		.hero-name {
+			font-size: clamp(2.95rem, 6.6vw, 5.15rem);
+			line-height: .95;
+			letter-spacing: -.035em;
+			margin: 6px 0 26px;
+		}
+		.hero-name .thin { color: var(--ink-2); }
+		.hero-name .dot { color: var(--accent); }
+		.hero-lede {
+			font-size: clamp(1.18rem, 2.1vw, 1.55rem);
+			line-height: 1.55;
+			color: var(--ink-2);
+			max-width: 34ch;
+			margin-bottom: 30px;
+		}
+
+		.hero-actions { display: flex; flex-wrap: wrap; gap: 14px; align-items: center; }
+
+		.btn {
+			display: inline-flex; align-items: center; gap: 10px;
+			font-size: 1rem; font-weight: 700; letter-spacing: .01em;
+			padding: 15px 26px; border-radius: 4px;
+			border: 1.5px solid transparent;
+			transition: transform .18s ease, background .25s ease, color .25s ease, border-color .25s ease;
+		}
+		.btn:hover { transform: translateY(-2px); }
+		.btn:active { transform: translateY(0); }
+		.btn-primary { background: var(--accent); color: #fbf9f5; }
+		.btn-primary:hover { background: var(--accent-deep); }
+		.btn-ghost { border-color: var(--line); color: var(--ink); }
+		.btn-ghost:hover { border-color: var(--ink); }
+		.btn .arrow { transition: transform .22s ease; }
+		.btn:hover .arrow { transform: translateX(4px); }
+
+		/* At-a-glance panel */
+		.status-dot {
+			width: 8px; height: 8px; border-radius: 50%;
+			background: var(--accent); flex: none;
+			animation: pulse 2.4s ease-in-out infinite;
+		}
+		@keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: .35; } }
+
+		.hero-panel {
+			background: #fbf9f5;
+			border: 1px solid var(--line);
+			border-radius: 8px;
+			padding: clamp(22px, 2.6vw, 30px);
+		}
+		.panel-title {
+			font-size: .78rem; font-weight: 700;
+			letter-spacing: .15em; text-transform: uppercase;
+			color: var(--accent-deep);
+			padding-bottom: 16px;
+			border-bottom: 1px solid var(--line);
+			margin-bottom: 2px;
+		}
+		.panel-row {
+			display: grid;
+			grid-template-columns: 84px 1fr;
+			gap: 12px;
+			padding: 15px 0;
+			border-bottom: 1px solid var(--line);
+		}
+		.panel-row:last-child { border-bottom: 0; padding-bottom: 2px; }
+		.panel-label {
+			font-size: .72rem; font-weight: 700; letter-spacing: .12em;
+			text-transform: uppercase; color: var(--muted); padding-top: 3px;
+		}
+		.panel-value {
+			font-size: .95rem; line-height: 1.55; color: var(--ink-2);
+		}
+		.panel-status {
+			display: inline-flex; align-items: center; gap: .55em;
+			color: var(--ink); font-weight: 700;
+		}
+		.hero-panel .chips { margin-top: 0; }
+		.hero-panel .chips li { padding: 6px 12px; font-size: .74rem; background: var(--paper); }
+		.panel-socials { display: flex; flex-wrap: wrap; gap: 8px 18px; }
+		.panel-socials a {
+			color: var(--accent-deep); font-weight: 700;
+			display: inline-flex; align-items: center; gap: 3px;
+			transition: color .25s ease;
+		}
+		.panel-socials a:hover { color: var(--accent); }
+
+		/* Chips (shared) */
+		.chips { display: flex; flex-wrap: wrap; gap: 10px; }
+		.chips li {
+			font-size: .82rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase;
+			color: var(--ink-2);
+			padding: 9px 15px; border: 1px solid var(--line); border-radius: 100px;
+			background: #fbf9f5;
+		}
+
+		/* ---------- Reveal animation (progressive: visible without JS) ---------- */
+		.reveal { transition: opacity .8s ease, transform .8s cubic-bezier(.22, .61, .36, 1); }
+		.js .reveal { opacity: 0; transform: translateY(20px); }
+		.js .reveal.is-visible { opacity: 1; transform: none; }
+		.js .reveal[data-delay="1"] { transition-delay: .09s; }
+		.js .reveal[data-delay="2"] { transition-delay: .18s; }
+		.js .reveal[data-delay="3"] { transition-delay: .27s; }
+		.js .reveal[data-delay="4"] { transition-delay: .36s; }
+
+		/* ---------- Responsive (above the fold) ---------- */
+		@media (max-width: 860px) {
+			.hero-grid { grid-template-columns: 1fr; gap: 36px; align-items: start; }
+			.hero-lede { max-width: 40ch; }
+		}
+		@media (max-width: 520px) {
+			.topbar-inner { height: 64px; }
+			.brand { font-size: .95rem; gap: 10px; }
+			.brand .mark { width: 32px; height: 32px; }
+			.panel-row { grid-template-columns: 1fr; gap: 4px; }
+			.panel-label { padding-top: 0; }
+			.hero-actions .btn { width: 100%; justify-content: center; }
+		}
+
+		@media (prefers-reduced-motion: reduce) {
+			html { scroll-behavior: auto; }
+			.js .reveal { opacity: 1; transform: none; transition: none; }
+			.status-dot { animation: none; }
+			.btn:hover, .brand .mark img, .arw { transition: none; }
+		}
+	</style>
 </head>
-<body itemscope itemtype="http://schema.org/Person" data-since="2013">
-    <canvas id="wave-bg"></canvas>
-    <div id="avatar-bg"></div>
-    <button id="theme-toggle" title="Toggle theme" aria-label="Toggle light/dark theme">
-	<svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18a6 6 0 1 1 0-12 6 6 0 0 1 0 12zm0-2a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM11 1h2v3h-2V1zm0 19h2v3h-2v-3zM3.515 4.929l1.414-1.414L7.05 5.636 5.636 7.05 3.515 4.93zM16.95 18.364l1.414-1.414 2.121 2.121-1.414 1.414-2.121-2.121zm2.121-14.85l1.414 1.415-2.121 2.121-1.414-1.414 2.121-2.121zM5.636 16.95l1.414 1.414-2.121 2.121-1.414-1.414 2.121-2.121zM23 11v2h-3v-2h3zM4 11v2H1v-2h3z"/></svg>
-	<svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 7a7 7 0 0 0 12 4.9v.1c0 5.523-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2h.1A6.979 6.979 0 0 0 10 7zm-6 5a8 8 0 0 0 15.062 3.762A9 9 0 0 1 8.238 4.938 7.999 7.999 0 0 0 4 12z"/></svg>
-    </button>
-    <div id="container">
-    	<div id="app">
-    	    <main>
-    		<article>
-    		    <header>
-    		    	<img id="avatar-mobile" class="fade-in" src="https://avatars.githubusercontent.com/u/6700576?v=4" alt="Nordanne Isahac" />
-    		    	<span class="bar fade-in fade-in-d4" style="visibility: visible;"></span>
-    		    	<h1 id="name" class="h4" itemprop="name"></h1>
-    		    </header>
+<body>
+	<a class="skip-link" href="#main">Skip to content</a>
 
-    		    <p id="subtitle" class="h6 fade-in fade-in-d1"><span itemprop="title">Web Developer</span></p>
-    		    <ul id="skills">
-			<li data-text="wp">WordPress</li>
-			<li data-text="wc">WooCommerce</li>
-			<li data-text="openmage">OpenMage</li>
-    		    </ul>
-    		    <p id="description" class="fade-in fade-in-d2" itemprop="description">Hello World! I'm a Web Developer with over a decade of experience, specializing in WordPress/WooCommerce development.</p>
-    		    <footer>
-    		    	<ul class="links fade-in fade-in-d3">
-    		    	    <li>
-    		    		<a href="mailto:den.isahac@gmail.com" title="Shoot me an email" itemprop="email">
-    		    		    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M12 12.713l-11.985-9.713h23.97l-11.985 9.713zm0 2.574l-12-9.725v15.438h24v-15.438l-12 9.725z" fill="#9c9c9c"></path>
-    		    		    </svg>
-    		    		</a>
-    		    	    </li>
-    		    	    <li>
-    		    		<a href="https://github.com/denisahac" target="_blank" title="Follow me on GitHub" itemprop="url">
-    		    		    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" fill="#9c9c9c"></path></svg>
-    		    		</a>
-    		    	    </li>
-    		    	    <li>
-    		    		<a href="https://www.linkedin.com/in/nordanne-isahac-176a3086/" target="_blank" title="Add me on LinkedIn" itemprop="url">
-    		    		    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M4.98 3.5c0 1.381-1.11 2.5-2.48 2.5s-2.48-1.119-2.48-2.5c0-1.38 1.11-2.5 2.48-2.5s2.48 1.12 2.48 2.5zm.02 4.5h-5v16h5v-16zm7.982 0h-4.968v16h4.969v-8.399c0-4.67 6.029-5.052 6.029 0v8.399h4.988v-10.131c0-7.88-8.922-7.593-11.018-3.714v-2.155z" fill="#9c9c9c"></path></svg>
-    		    		</a>
-    		    	    </li>
-    		    	</ul>
-    		    </footer>
-    		</article>
-    	    </main>
-    	</div>
-    </div>
-    <!--
-    <script crossorigin src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
-    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
-    <script src="assets/dist/js/app.min.js" async></script>
-    -->
+	<div class="sheet">
+		<!-- ============ TOP BAR ============ -->
+		<header class="topbar" id="topbar">
+			<div class="wrap topbar-inner">
+				<a class="brand" href="#top">
+					<span class="mark">
+						<picture>
+							<source srcset="assets/images/nordanne-isahac-avatar.webp" type="image/webp">
+							<img src="assets/images/nordanne-isahac-avatar.jpg" alt="Nordanne Isahac" width="256" height="256">
+						</picture>
+					</span>
+					<span>Nordanne Isahac</span>
+				</a>
+				<nav class="topnav" aria-label="Primary">
+					<a class="nav-link" href="#about">About</a>
+					<a class="nav-link" href="#work">What I do</a>
+					<a class="nav-link" href="#experience">Experience</a>
+					<a class="nav-cta" href="#contact">Get in touch</a>
+				</nav>
+			</div>
+		</header>
 
-    <noscript id="deferred-styles"> 
-	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Inter:wght@400;500;700&display=swap">
-    </noscript>
+		<main id="main">
+			<!-- ============ HERO ============ -->
+			<section class="hero" id="top">
+				<div class="wrap hero-grid">
+					<div class="hero-text">
+						<p class="eyebrow reveal">WooCommerce Developer &mdash; Since 2013</p>
+						<h1 class="hero-name reveal" data-delay="1">Nordanne<br><span class="thin">Isahac</span><span class="dot">.</span></h1>
+						<p class="hero-lede reveal" data-delay="2">Hello World! I&rsquo;m Nordanne &mdash; a WooCommerce developer with over a decade of experience building WordPress stores that are fast, dependable, and easy to run.</p>
+						<div class="hero-actions reveal" data-delay="3">
+							<a class="btn btn-primary" href="mailto:den.isahac@gmail.com">
+								Get in touch
+								<svg class="arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+							</a>
+							<a class="btn btn-ghost" href="#work">What I do</a>
+						</div>
+					</div>
 
-    <style type="text/css">
-	#name {
-	    margin-bottom: 0.25rem;
-	}
+					<aside class="hero-panel reveal" data-delay="2" aria-label="At a glance">
+						<h2 class="panel-title">At a glance</h2>
+						<div class="panel-list">
+							<div class="panel-row">
+								<span class="panel-label">Status</span>
+								<div class="panel-value"><span class="panel-status"><span class="status-dot" aria-hidden="true"></span>Available for select projects</span></div>
+							</div>
+							<div class="panel-row">
+								<span class="panel-label">Location</span>
+								<div class="panel-value">Based remotely &mdash; working with teams &amp; brands worldwide.</div>
+							</div>
+							<div class="panel-row">
+								<span class="panel-label">Expertise</span>
+								<div class="panel-value">
+									<ul class="chips">
+										<li>WordPress</li>
+										<li>WooCommerce</li>
+									</ul>
+								</div>
+							</div>
+							<div class="panel-row">
+								<span class="panel-label">Experience</span>
+								<div class="panel-value">10+ years &middot; Since 2013</div>
+							</div>
+							<div class="panel-row">
+								<span class="panel-label">Connect</span>
+								<div class="panel-value">
+									<ul class="panel-socials">
+										<li><a href="mailto:den.isahac@gmail.com" title="Shoot me an email">Email<span class="arw" aria-hidden="true">&#8599;</span></a></li>
+										<li><a href="https://github.com/denisahac" target="_blank" rel="noopener" title="Follow me on GitHub">GitHub<span class="arw" aria-hidden="true">&#8599;</span></a></li>
+										<li><a href="https://www.linkedin.com/in/nordanne-isahac-176a3086/" target="_blank" rel="noopener" title="Add me on LinkedIn">LinkedIn<span class="arw" aria-hidden="true">&#8599;</span></a></li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</aside>
+				</div>
+			</section>
 
-	#subtitle {
-	    margin-bottom: 0.25rem;
-	}
+			<!-- ============ ABOUT ============ -->
+			<section class="section about" id="about">
+				<div class="wrap about-grid">
+					<div class="about-head reveal">
+						<p class="eyebrow">About</p>
+						<h2 class="section-title">A decade on the web &mdash; focused on the storefront.</h2>
+					</div>
+					<div class="about-body">
+						<p class="body-text reveal" data-delay="1">These days my focus is narrow on purpose: I build and refine WooCommerce stores that load fast, run reliably, and stay simple for their owners to manage.</p>
+						<p class="body-text reveal" data-delay="2">From custom themes and checkout flows to performance tuning and migrations, I help brands turn their storefronts into dependable sales channels &mdash; without the drama.</p>
+					</div>
+				</div>
+			</section>
 
-	#skills {
-	    display: flex;
-	    flex-wrap: wrap;
-	    margin-bottom: 0.75rem;
-	    list-style: none;
-	    font-size: 12px;
-	}
+			<!-- ============ WHAT I DO ============ -->
+			<section class="section services" id="work">
+				<div class="wrap">
+					<p class="eyebrow reveal">What I do</p>
+					<h2 class="section-title reveal" data-delay="1">WooCommerce, handled end to end.</h2>
+					<ol class="service-list">
+						<li class="reveal">
+							<span class="service-num">01</span>
+							<div class="service-body">
+								<h3>Store Development</h3>
+								<p>Custom WooCommerce themes, product architecture, and checkout flows built around the way you actually sell &mdash; clean, fast, and easy to run.</p>
+							</div>
+						</li>
+						<li class="reveal" data-delay="1">
+							<span class="service-num">02</span>
+							<div class="service-body">
+								<h3>Performance &amp; Optimization</h3>
+								<p>Speed work, Core Web Vitals, and scalability tuning so your store stays quick and stable as traffic and catalog grow.</p>
+							</div>
+						</li>
+						<li class="reveal" data-delay="2">
+							<span class="service-num">03</span>
+							<div class="service-body">
+								<h3>Migrations &amp; Support</h3>
+								<p>Platform migrations, payment and shipping integrations, and dependable ongoing maintenance whenever you need a steady hand.</p>
+							</div>
+						</li>
+					</ol>
+				</div>
+			</section>
 
-	#skills li {
-	    display: inline-block;
-	    margin-right: 4px;
-	    margin-bottom: 4px;
-	    padding: 2px 6px;
-	    border: 1px solid;
-	    border-radius: 2px;
-	}
+			<!-- ============ EXPERIENCE / STATS ============ -->
+			<section class="section stats" id="experience">
+				<div class="wrap">
+					<ul class="stat-row">
+						<li class="reveal">
+							<span class="stat-value accent">10+</span>
+							<span class="stat-label">Years building for the web</span>
+						</li>
+						<li class="reveal" data-delay="1">
+							<span class="stat-value">WooCommerce</span>
+							<span class="stat-label">Primary focus &amp; specialty</span>
+						</li>
+						<li class="reveal" data-delay="2">
+							<span class="stat-value">End&#8209;to&#8209;end</span>
+							<span class="stat-label">Build &middot; Optimize &middot; Support</span>
+						</li>
+					</ul>
+				</div>
+			</section>
 
-	/*
-	#skills li[data-text="wp"] {
-	    background: #207196;
-	}
+			<!-- ============ CONTACT ============ -->
+			<section class="section contact" id="contact">
+				<div class="wrap narrow">
+					<p class="eyebrow reveal">Contact</p>
+					<h2 class="contact-title reveal" data-delay="1">Let&rsquo;s build a store that sells.</h2>
+					<p class="lede reveal" data-delay="2">Planning a launch, a migration, or a performance overhaul? Tell me about it &mdash; I&rsquo;d love to help.</p>
+					<a class="email-cta reveal" data-delay="3" href="mailto:den.isahac@gmail.com">den.isahac@gmail.com<span class="arw" aria-hidden="true">&#8599;</span></a>
+					<ul class="socials reveal" data-delay="4">
+						<li>
+							<a href="mailto:den.isahac@gmail.com" title="Shoot me an email" aria-label="Email">
+								<svg viewBox="0 0 24 24"><path d="M12 12.713l-11.985-9.713h23.97l-11.985 9.713zm0 2.574l-12-9.725v15.438h24v-15.438l-12 9.725z"></path></svg>
+							</a>
+						</li>
+						<li>
+							<a href="https://github.com/denisahac" target="_blank" rel="noopener" title="Follow me on GitHub" aria-label="GitHub">
+								<svg viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"></path></svg>
+							</a>
+						</li>
+						<li>
+							<a href="https://www.linkedin.com/in/nordanne-isahac-176a3086/" target="_blank" rel="noopener" title="Add me on LinkedIn" aria-label="LinkedIn">
+								<svg viewBox="0 0 24 24"><path d="M4.98 3.5c0 1.381-1.11 2.5-2.48 2.5s-2.48-1.119-2.48-2.5c0-1.38 1.11-2.5 2.48-2.5s2.48 1.12 2.48 2.5zm.02 4.5h-5v16h5v-16zm7.982 0h-4.968v16h4.969v-8.399c0-4.67 6.029-5.052 6.029 0v8.399h4.988v-10.131c0-7.88-8.922-7.593-11.018-3.714v-2.155z"></path></svg>
+							</a>
+						</li>
+					</ul>
+				</div>
+			</section>
+		</main>
 
-	#skills li[data-text="wc"] {
-	    background: #7f55b4;
-	}
+		<!-- ============ FOOTER ============ -->
+		<footer class="footer">
+			<div class="wrap footer-inner">
+				<p>&copy; 2013&ndash;<span id="year">2026</span> Nordanne Isahac. All rights reserved.</p>
+				<p class="footer-meta">WordPress &amp; WooCommerce developer</p>
+			</div>
+		</footer>
+	</div>
 
-	#skills li[data-text="magento"] {
-	    background: #ed7921;
-	}
+	<style>
+		/* ============================================================
+		   DEFERRED CSS: below-the-fold sections.
+		   Loaded at the end of the body; above-the-fold rules live
+		   in the <head> <style>.
+		   ============================================================ */
 
-	#skills li[data-text="openmage"] {
-	    background: #f30f6d;
-	}
+		/* ---------- Layout helpers (below the fold) ---------- */
+		.narrow { max-width: var(--narrow, 720px); }
+		.section { padding-block: var(--section-y); }
 
-	#skills li[data-text="drupal"] {
-	    background: #0297d8;
-	}
-	*/
+		/* ---------- Type primitives (below the fold) ---------- */
+		.section-title {
+			font-size: clamp(1.9rem, 4.2vw, 3rem);
+			max-width: 18ch;
+			margin-bottom: 26px;
+		}
+		.lede { font-size: clamp(1.12rem, 2vw, 1.45rem); line-height: 1.62; color: var(--ink-2); }
+		.body-text { font-size: 1.075rem; line-height: 1.78; color: var(--ink-2); }
+		.body-text + .body-text { margin-top: 20px; }
 
-	img.img {
-	    width: 48px;
-	    filter: grayscale(1);
-	    opacity: 0.55;
-	}
+		/* ---------- About (head | body) ---------- */
+		.about-grid { display: grid; grid-template-columns: .95fr 1.05fr; gap: clamp(28px, 6vw, 72px); align-items: start; }
+		.about-head .section-title { max-width: 15ch; margin-bottom: 0; }
+		.about-body { padding-top: 6px; }
 
-	a:active img.img,
-	a:focus img.img,
-	a:hover img.img {
-	    opacity: 1;
-	    filter: none;
-	}
-    </style>
+		/* ---------- Services ---------- */
+		.service-list { margin-top: 42px; border-top: 1px solid var(--line); }
+		.service-list li {
+			display: grid;
+			grid-template-columns: 88px 1fr;
+			gap: clamp(18px, 4vw, 54px);
+			padding: 32px 0;
+			border-bottom: 1px solid var(--line);
+			align-items: baseline;
+		}
+		.service-num {
+			font-size: 1.05rem; font-weight: 700; letter-spacing: .12em;
+			color: var(--accent);
+			transition: transform .3s cubic-bezier(.22, 1, .36, 1);
+		}
+		.service-list li:hover .service-num { transform: translateX(3px); }
+		.service-body h3 { font-size: clamp(1.35rem, 2.6vw, 1.85rem); margin-bottom: 12px; }
+		.service-body p { font-size: 1.075rem; line-height: 1.72; color: var(--ink-2); max-width: 56ch; }
 
-    <script>
-    	var loadDeferredStyles = function() {
-    	    var addStylesNode = document.getElementById("deferred-styles");
-    	    var replacement = document.createElement("div");
-    	    replacement.innerHTML = addStylesNode.textContent;
-    	    document.body.appendChild(replacement)
-    	    addStylesNode.parentElement.removeChild(addStylesNode);
-    	};
-    	var raf = window.requestAnimationFrame || window.mozRequestAnimationFrame ||
-    	window.webkitRequestAnimationFrame || window.msRequestAnimationFrame;
-    	if (raf) raf(function() { window.setTimeout(loadDeferredStyles, 0); });
-    	else window.addEventListener('load', loadDeferredStyles);
+		/* ---------- Stats ---------- */
+		.stat-row {
+			display: grid; grid-template-columns: repeat(3, 1fr);
+			gap: 24px;
+			border-top: 1px solid var(--line);
+			border-bottom: 1px solid var(--line);
+		}
+		.stat-row li { padding: 40px 8px 40px 0; }
+		.stat-row li + li { padding-left: 34px; border-left: 1px solid var(--line); }
+		.stat-value {
+			font-size: clamp(2.1rem, 4.5vw, 3.15rem); font-weight: 700;
+			letter-spacing: -.03em; line-height: 1; color: var(--ink);
+			display: block; margin-bottom: 12px;
+		}
+		.stat-value.accent { color: var(--accent-deep); }
+		.stat-label { font-size: .92rem; color: var(--muted); letter-spacing: .04em; line-height: 1.5; }
 
-    	// Theme toggle
-    	(function() {
-    	    var root = document.documentElement;
-    	    var toggle = document.getElementById('theme-toggle');
-    	    var stored = localStorage.getItem('theme');
-    	    if (stored) root.setAttribute('data-theme', stored);
+		/* ---------- Contact ---------- */
+		.contact { text-align: center; }
+		.contact .eyebrow::before { display: none; }
+		.contact-title {
+			font-size: clamp(2.15rem, 5.2vw, 3.75rem);
+			max-width: 16ch; margin: 0 auto 22px;
+		}
+		.contact .lede { max-width: 42ch; margin: 0 auto 36px; }
 
-    	    toggle.addEventListener('click', function() {
-    	        var current = root.getAttribute('data-theme');
-    	        var isDark = !current
-    	            ? window.matchMedia('(prefers-color-scheme: light)').matches ? false : true
-    	            : current === 'dark';
-    	        var next = isDark ? 'light' : 'dark';
-    	        root.setAttribute('data-theme', next);
-    	        localStorage.setItem('theme', next);
-    	    });
-    	})();
+		.email-cta {
+			display: inline-block;
+			font-size: clamp(1.55rem, 4.4vw, 2.75rem);
+			font-weight: 700; letter-spacing: -.035em; line-height: 1.1;
+			color: var(--ink);
+			position: relative; padding-bottom: 8px;
+			margin-bottom: 34px;
+		}
+		.email-cta::after {
+			content: ""; position: absolute; left: 0; bottom: 0;
+			width: 100%; height: 3px; background: var(--accent);
+			transform: scaleX(0); transform-origin: left;
+			transition: transform .4s cubic-bezier(.22, 1, .36, 1);
+		}
+		.email-cta:hover::after, .email-cta:focus-visible::after { transform: scaleX(1); }
+		.email-cta .arw { font-size: .5em; vertical-align: .55em; color: var(--accent); }
 
-    	// Random shape mask for avatar
-    	(function() {
-    	    var masks = [
-    	        'circle(50% at 50% 50%)',
-    	        'inset(0 0 0 0 round 12px)'
-    	    ];
-    	    var pick = masks[Math.floor(Math.random() * masks.length)];
-    	    var avatar = document.getElementById('avatar-bg');
-    	    if (avatar) {
-    	        avatar.style.clipPath = pick;
-    	        avatar.style.webkitClipPath = pick;
-    	    }
-    	})();
+		.socials { display: flex; justify-content: center; gap: 14px; }
+		.socials a {
+			display: inline-grid; place-items: center;
+			width: 46px; height: 46px; border: 1px solid var(--line); border-radius: 50%;
+			color: var(--ink-2);
+			transition: color .25s ease, border-color .25s ease, transform .2s ease;
+		}
+		.socials a:hover { color: var(--accent-deep); border-color: var(--accent); transform: translateY(-2px); }
+		.socials svg { width: 19px; height: 19px; fill: currentColor; }
 
-    	// Typewriter for name
-    	(function() {
-    	    var el = document.getElementById('name');
-    	    var text = 'Nordanne Isahac';
-    	    var i = 0;
-    	    var cursor = document.createElement('span');
-    	    cursor.className = 'typewriter-cursor';
-    	    cursor.innerHTML = '&nbsp;';
-    	    el.appendChild(cursor);
+		/* ---------- Footer ---------- */
+		.footer { margin-top: auto; border-top: 1px solid var(--line); padding-block: 34px; }
+		.footer-inner { display: flex; flex-wrap: wrap; gap: 12px 24px; justify-content: space-between; align-items: center; }
+		.footer p { font-size: .82rem; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
+		.footer .footer-meta { color: var(--accent-deep); }
 
-    	    function type() {
-    	        if (i < text.length) {
-    	            var span = document.createElement('span');
-    	            span.className = 'char';
-    	            span.textContent = text.charAt(i) === ' ' ? '\u00A0' : text.charAt(i);
-    	            el.insertBefore(span, cursor);
-    	            i++;
-    	            setTimeout(type, 80 + Math.random() * 60);
-    	        } else {
-    	            setTimeout(function() { cursor.style.display = 'none'; }, 2000);
-    	        }
-    	    }
-    	    setTimeout(type, 300);
-    	})();
+		/* ---------- Responsive (below the fold) ---------- */
+		@media (max-width: 860px) {
+			.about-grid { grid-template-columns: 1fr; gap: 18px; }
+			.about-head .section-title { max-width: 20ch; margin-bottom: 8px; }
+			.stat-row { grid-template-columns: 1fr; gap: 0; }
+			.stat-row li { padding: 28px 0; }
+			.stat-row li + li { padding-left: 0; border-left: 0; border-top: 1px solid var(--line); }
+		}
+		@media (max-width: 520px) {
+			.service-list li { grid-template-columns: 1fr; gap: 10px; }
+			.footer-inner { flex-direction: column; align-items: flex-start; }
+		}
 
-    	// Floating shapes background
-    	(function() {
-    	    var canvas = document.getElementById('wave-bg');
-    	    var ctx = canvas.getContext('2d');
-    	    var w, h;
-    	    var shapes = [];
-    	    var numShapes = 14;
-    	    var types = ['square', 'circle', 'triangle'];
-    	    var color = '247, 181, 65';
-    	    var mouseX = -9999, mouseY = -9999;
-    	    var avoidRadius = 120;
-    	    var avoidStrength = 3;
+		@media (prefers-reduced-motion: reduce) {
+			.socials a:hover, .service-num { transition: none; }
+		}
+	</style>
 
-    	    function resize() {
-    	        w = canvas.width = window.innerWidth;
-    	        h = canvas.height = window.innerHeight;
-    	    }
-    	    window.addEventListener('resize', resize);
-    	    resize();
+	<script>
+		(function () {
+			'use strict';
 
-    	    document.addEventListener('mousemove', function(e) {
-    	        mouseX = e.clientX;
-    	        mouseY = e.clientY;
-    	    });
-    	    document.addEventListener('mouseleave', function() {
-    	        mouseX = -9999;
-    	        mouseY = -9999;
-    	    });
+			// Current year in the footer
+			var yearEl = document.getElementById('year');
+			if (yearEl) yearEl.textContent = String(new Date().getFullYear());
 
-    	    for (var i = 0; i < numShapes; i++) {
-    	        shapes.push({
-    	            type: types[Math.floor(Math.random() * types.length)],
-    	            x: Math.random() * 1.2 - 0.1,
-    	            y: Math.random() * 1.2 - 0.1,
-    	            size: 10 + Math.random() * 80,
-    	            speedX: (Math.random() - 0.5) * 0.3,
-    	            speedY: (Math.random() - 0.5) * 0.2,
-    	            rotation: Math.random() * Math.PI * 2,
-    	            rotSpeed: (Math.random() - 0.5) * 0.008,
-    	            opacity: 0.08 + Math.random() * 0.12
-    	        });
-    	    }
+			// Reveal-on-scroll
+			var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+			var reveals = Array.prototype.slice.call(document.querySelectorAll('.reveal'));
 
-    	    function drawShape(s) {
-    	        var cx = s.x * w;
-    	        var cy = s.y * h;
-    	        ctx.save();
-    	        ctx.translate(cx, cy);
-    	        ctx.rotate(s.rotation);
-    	        ctx.strokeStyle = 'rgb(' + color + ')';
-    	        ctx.lineWidth = 1.5;
+			if (reduceMotion || !('IntersectionObserver' in window)) {
+				reveals.forEach(function (el) { el.classList.add('is-visible'); });
+				return;
+			}
 
-    	        if (s.type === 'square') {
-    	            var half = s.size / 2;
-    	            ctx.strokeRect(-half, -half, s.size, s.size);
-    	        } else if (s.type === 'circle') {
-    	            ctx.beginPath();
-    	            ctx.arc(0, 0, s.size / 2, 0, Math.PI * 2);
-    	            ctx.stroke();
-    	        } else if (s.type === 'triangle') {
-    	            var r = s.size / 2;
-    	            ctx.beginPath();
-    	            ctx.moveTo(0, -r);
-    	            ctx.lineTo(r * Math.cos(Math.PI / 6), r * Math.sin(Math.PI / 6));
-    	            ctx.lineTo(-r * Math.cos(Math.PI / 6), r * Math.sin(Math.PI / 6));
-    	            ctx.closePath();
-    	            ctx.stroke();
-    	        }
+			var observer = new IntersectionObserver(function (entries, obs) {
+				entries.forEach(function (entry) {
+					if (entry.isIntersecting) {
+						entry.target.classList.add('is-visible');
+						obs.unobserve(entry.target);
+					}
+				});
+			}, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
 
-    	        ctx.restore();
-    	    }
-
-    	    function draw() {
-    	        ctx.clearRect(0, 0, w, h);
-    	        for (var i = 0; i < shapes.length; i++) {
-    	            var s = shapes[i];
-    	            var cx = s.x * w;
-    	            var cy = s.y * h;
-
-    	            // Mouse avoidance
-    	            var dx = cx - mouseX;
-    	            var dy = cy - mouseY;
-    	            var dist = Math.sqrt(dx * dx + dy * dy);
-    	            if (dist < avoidRadius && dist > 0) {
-    	                var force = (avoidRadius - dist) / avoidRadius * avoidStrength;
-    	                s.x += (dx / dist) * force / w;
-    	                s.y += (dy / dist) * force / h;
-    	            }
-
-    	            s.x += s.speedX / w;
-    	            s.y += s.speedY / h;
-    	            s.rotation += s.rotSpeed;
-
-    	            if (s.x * w > w + 100) s.x = -100 / w;
-    	            if (s.x * w < -100) s.x = (w + 100) / w;
-    	            if (s.y * h > h + 100) s.y = -100 / h;
-    	            if (s.y * h < -100) s.y = (h + 100) / h;
-
-    	            drawShape(s);
-    	        }
-    	        requestAnimationFrame(draw);
-    	    }
-    	    draw();
-    	})();
-    </script>
+			// Reveal anything already within the viewport right away; observe the rest for scroll.
+			reveals.forEach(function (el) {
+				var rect = el.getBoundingClientRect();
+				if (rect.top < (window.innerHeight || 0) && rect.bottom > 0) {
+					el.classList.add('is-visible');
+				} else {
+					observer.observe(el);
+				}
+			});
+		})();
+	</script>
 </body>
 </html>

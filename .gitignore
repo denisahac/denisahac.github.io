@@ -58,3 +58,9 @@ typings/
 
 # dotenv environment variables file
 .env
+
+# My prompts
+prompts.md
+
+# Design explorations
+redesign.html
