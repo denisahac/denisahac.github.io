@@ -43,7 +43,7 @@
 		"description": "WooCommerce developer with over a decade of experience building fast, dependable WordPress stores.",
 		"sameAs": [
 			"https://github.com/denisahac",
-			"https://www.linkedin.com/in/nordanne-isahac-176a3086/"
+			"https://www.upwork.com/freelancers/~011ff6ead6e262fe48?viewMode=1"
 		]
 	}
 	</script>
@@ -92,7 +92,7 @@
 		/* ---------- Reset ---------- */
 		*, *::before, *::after { box-sizing: border-box; }
 		* { margin: 0; padding: 0; }
-		html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; scroll-padding-top: 84px; }
+		html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; scroll-padding-top: calc(var(--inset) + 84px); }
 
 		body {
 			font-family: Arial, sans-serif, serif;
@@ -118,6 +118,16 @@
 			min-height: calc(100svh - (2 * var(--inset)));
 			display: flex;
 			flex-direction: column;
+		}
+
+		/* Persistent frame: the sheet's inset padding drawn as a fixed overlay,
+		   so the margin stays visible on all four sides while scrolling.
+		   The 1px inset shadow keeps the sheet's border rule continuous. */
+		.frame {
+			position: fixed; inset: 0; z-index: 150;
+			border: var(--inset) solid var(--paper-out);
+			box-shadow: inset 0 0 0 1px var(--line);
+			pointer-events: none;
 		}
 
 		/* ---------- Layout helpers (above the fold) ---------- */
@@ -154,7 +164,7 @@
 
 		/* ---------- Top bar (sticky within the sheet) ---------- */
 		.topbar {
-			position: sticky; top: 0; z-index: 100;
+			position: sticky; top: var(--inset); z-index: 100;
 			background: var(--paper);
 			border-bottom: 1px solid var(--line);
 		}
@@ -341,6 +351,7 @@
 </head>
 <body>
 	<a class="skip-link" href="#main">Skip to content</a>
+	<div class="frame" aria-hidden="true"></div>
 
 	<div class="sheet">
 		<!-- ============ TOP BAR ============ -->
@@ -358,7 +369,6 @@
 				<nav class="topnav" aria-label="Primary">
 					<a class="nav-link" href="#about">About</a>
 					<a class="nav-link" href="#work">What I do</a>
-					<a class="nav-link" href="#projects">Work</a>
 					<a class="nav-link" href="#experience">Experience</a>
 					<a class="nav-cta" href="#contact">Get in touch</a>
 				</nav>
@@ -391,7 +401,7 @@
 							</div>
 							<div class="panel-row">
 								<span class="panel-label">Location</span>
-								<div class="panel-value">Based remotely &mdash; working with teams &amp; brands worldwide.</div>
+								<div class="panel-value">Based remotely.</div>
 							</div>
 							<div class="panel-row">
 								<span class="panel-label">Expertise</span>
@@ -412,7 +422,7 @@
 									<ul class="panel-socials">
 										<li><a href="mailto:den.isahac@gmail.com" title="Shoot me an email">Email<span class="arw" aria-hidden="true">&#8599;</span></a></li>
 										<li><a href="https://github.com/denisahac" target="_blank" rel="noopener" title="Follow me on GitHub">GitHub<span class="arw" aria-hidden="true">&#8599;</span></a></li>
-										<li><a href="https://www.linkedin.com/in/nordanne-isahac-176a3086/" target="_blank" rel="noopener" title="Add me on LinkedIn">LinkedIn<span class="arw" aria-hidden="true">&#8599;</span></a></li>
+										<li><a href="https://www.upwork.com/freelancers/~011ff6ead6e262fe48?viewMode=1" target="_blank" rel="noopener" title="View my Upwork profile">Upwork<span class="arw" aria-hidden="true">&#8599;</span></a></li>
 									</ul>
 								</div>
 							</div>
@@ -466,81 +476,6 @@
 				</div>
 			</section>
 
-			<!-- ============ SELECTED WORK ============ -->
-			<section class="section projects" id="projects">
-				<div class="wrap">
-					<p class="eyebrow reveal">Selected work</p>
-					<h2 class="section-title reveal" data-delay="1">A few projects from a decade on the web.</h2>
-					<ol class="project-list" id="project-list">
-						<!-- Fallback markup; re-rendered from projects.json when available. -->
-						<li class="reveal">
-							<span class="project-num">01</span>
-							<div class="project-body">
-								<h3><a href="https://www.agentagame.com/" target="_blank" rel="noopener">Agent A Game Website<span class="arw" aria-hidden="true">&#8599;</span></a></h3>
-								<p>HTML5 one-page site for Agent A, the award-winning mobile game.</p>
-								<p class="project-meta">Dec 2016 &middot; HTML5 &middot; Foundation &middot; SASS &middot; jQuery</p>
-							</div>
-						</li>
-						<li class="reveal" data-delay="1">
-							<span class="project-num">02</span>
-							<div class="project-body">
-								<h3><a href="http://www.cruisetrain-sevenstars.com/" target="_blank" rel="noopener">Cruise Train Seven Stars in Kyushu<span class="arw" aria-hidden="true">&#8599;</span></a></h3>
-								<p>WordPress site for Japan&rsquo;s first luxury sleeper train, built with custom post types and page templates for each destination.</p>
-								<p class="project-meta">Oct 2015 &ndash; Nov 2015 &middot; WordPress &middot; Custom Post Types &middot; SASS</p>
-							</div>
-						</li>
-						<li class="reveal" data-delay="2">
-							<span class="project-num">03</span>
-							<div class="project-body">
-								<h3><a href="http://www.ippudo.fr/" target="_blank" rel="noopener">Ippudo Paris Website<span class="arw" aria-hidden="true">&#8599;</span></a></h3>
-								<p>Responsive landing page for IPPUDO&rsquo;s Paris launch, later rebuilt in WordPress for the full restaurant site.</p>
-								<p class="project-meta">Jun 2015 &ndash; Feb 2016 &middot; HTML5 &middot; WordPress &middot; SASS</p>
-							</div>
-						</li>
-						<li class="reveal" data-delay="3">
-							<span class="project-num">04</span>
-							<div class="project-body">
-								<h3><a href="https://www.superiorfenceandrail.com/" target="_blank" rel="noopener">Superior Fence and Rail Multisite<span class="arw" aria-hidden="true">&#8599;</span></a></h3>
-								<p>WordPress Multisite network for an Orlando-based fencing and railing company.</p>
-								<p class="project-meta">Apr 2018 &ndash; Jun 2018 &middot; WordPress &middot; Multisite &middot; Bootstrap</p>
-							</div>
-						</li>
-						<li class="reveal">
-							<span class="project-num">05</span>
-							<div class="project-body">
-								<h3><a href="https://roofingadvantage.com/" target="_blank" rel="noopener">Advantage Roofing WordPress Website<span class="arw" aria-hidden="true">&#8599;</span></a></h3>
-								<p>Responsive WordPress site for an Orlando roofing company.</p>
-								<p class="project-meta">May 2018 &ndash; Jun 2018 &middot; WordPress &middot; Bootstrap &middot; Sass</p>
-							</div>
-						</li>
-						<li class="reveal" data-delay="1">
-							<span class="project-num">06</span>
-							<div class="project-body">
-								<h3><a href="https://ginnomikazuki.com/" target="_blank" rel="noopener">Gin No Mikazuki Website<span class="arw" aria-hidden="true">&#8599;</span></a></h3>
-								<p>Custom WordPress site for a Japanese premium rice dealer.</p>
-								<p class="project-meta">Apr 2016 &ndash; May 2016 &middot; WordPress &middot; MySQL</p>
-							</div>
-						</li>
-						<li class="reveal" data-delay="2">
-							<span class="project-num">07</span>
-							<div class="project-body">
-								<h3><a href="http://nobleagency.com.au" target="_blank" rel="noopener">Custom WordPress Theme for Noble Agency<span class="arw" aria-hidden="true">&#8599;</span></a></h3>
-								<p>Custom responsive WordPress theme for Noble Agency.</p>
-								<p class="project-meta">Apr 2021 &ndash; Sep 2021 &middot; WordPress &middot; Responsive Theme</p>
-							</div>
-						</li>
-						<li class="reveal" data-delay="3">
-							<span class="project-num">08</span>
-							<div class="project-body">
-								<h3><a href="http://gokan.eisnetwork.co" target="_blank" rel="noopener">Single Page WordPress Website for Gokan<span class="arw" aria-hidden="true">&#8599;</span></a></h3>
-								<p>Single-page custom responsive WordPress theme for Gokan.</p>
-								<p class="project-meta">Oct 2022 &ndash; Dec 2022 &middot; WordPress &middot; Responsive Theme</p>
-							</div>
-						</li>
-					</ol>
-				</div>
-			</section>
-
 			<!-- ============ EXPERIENCE / STATS ============ -->
 			<section class="section stats" id="experience">
 				<div class="wrap">
@@ -580,8 +515,8 @@
 							</a>
 						</li>
 						<li>
-							<a href="https://www.linkedin.com/in/nordanne-isahac-176a3086/" target="_blank" rel="noopener" title="Add me on LinkedIn" aria-label="LinkedIn">
-								<svg viewBox="0 0 24 24"><path d="M4.98 3.5c0 1.381-1.11 2.5-2.48 2.5s-2.48-1.119-2.48-2.5c0-1.38 1.11-2.5 2.48-2.5s2.48 1.12 2.48 2.5zm.02 4.5h-5v16h5v-16zm7.982 0h-4.968v16h4.969v-8.399c0-4.67 6.029-5.052 6.029 0v8.399h4.988v-10.131c0-7.88-8.922-7.593-11.018-3.714v-2.155z"></path></svg>
+							<a href="https://www.upwork.com/freelancers/~011ff6ead6e262fe48?viewMode=1" target="_blank" rel="noopener" title="View my Upwork profile" aria-label="Upwork">
+								<svg viewBox="0 0 24 24"><path d="M18.561 13.158c-1.102 0-2.135-.467-3.074-1.227l.228-1.076.008-.042c.207-1.143.849-3.06 2.839-3.06 1.492 0 2.703 1.212 2.703 2.703-.001 1.489-1.212 2.702-2.704 2.702zm0-8.14c-2.539 0-4.51 1.649-5.31 4.366-1.22-1.834-2.148-4.036-2.687-5.892H7.828v7.112c-.002 1.406-1.141 2.546-2.547 2.548-1.405-.002-2.543-1.143-2.545-2.548V3.492H0v7.112c0 2.914 2.37 5.303 5.281 5.303 2.913 0 5.283-2.389 5.283-5.303v-1.19c.529 1.107 1.182 2.229 1.974 3.221l-1.673 7.873h2.797l1.213-5.71c1.063.679 2.285 1.109 3.686 1.109 3 0 5.439-2.452 5.439-5.45 0-3-2.439-5.439-5.439-5.439z"></path></svg>
 							</a>
 						</li>
 					</ul>
@@ -642,33 +577,6 @@
 		.service-list li:hover .service-num { transform: translateX(3px); }
 		.service-body h3 { font-size: clamp(1.35rem, 2.6vw, 1.85rem); margin-bottom: 12px; }
 		.service-body p { font-size: 1.075rem; line-height: 1.72; color: var(--ink-2); max-width: 56ch; }
-
-		/* ---------- Selected work ---------- */
-		.project-list { margin-top: 42px; border-top: 1px solid var(--line); }
-		.project-list li {
-			display: grid;
-			grid-template-columns: 88px 1fr;
-			gap: clamp(18px, 4vw, 54px);
-			padding: 28px 0;
-			border-bottom: 1px solid var(--line);
-			align-items: baseline;
-		}
-		.project-num {
-			font-size: 1.05rem; font-weight: 700; letter-spacing: .12em;
-			color: var(--accent);
-			transition: transform .3s cubic-bezier(.22, 1, .36, 1);
-		}
-		.project-list li:hover .project-num { transform: translateX(3px); }
-		.project-body h3 { font-size: clamp(1.15rem, 2.2vw, 1.5rem); margin-bottom: 8px; }
-		.project-body h3 a { transition: color .25s ease; }
-		.project-body h3 a:hover, .project-body h3 a:focus-visible { color: var(--accent-deep); }
-		.project-body h3 .arw { color: var(--accent); font-size: .8em; }
-		.project-body p { font-size: 1.02rem; line-height: 1.7; color: var(--ink-2); max-width: 56ch; }
-		.project-meta {
-			margin-top: 10px;
-			font-size: .78rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase;
-			color: var(--muted);
-		}
 
 		/* ---------- Stats ---------- */
 		.stat-row {
@@ -738,12 +646,12 @@
 			.stat-row li + li { padding-left: 0; border-left: 0; border-top: 1px solid var(--line); }
 		}
 		@media (max-width: 520px) {
-			.service-list li, .project-list li { grid-template-columns: 1fr; gap: 10px; }
+			.service-list li { grid-template-columns: 1fr; gap: 10px; }
 			.footer-inner { flex-direction: column; align-items: flex-start; }
 		}
 
 		@media (prefers-reduced-motion: reduce) {
-			.socials a:hover, .service-num, .project-num { transition: none; }
+			.socials a:hover, .service-num { transition: none; }
 		}
 	</style>
 
@@ -757,84 +665,31 @@
 
 			// Reveal-on-scroll
 			var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-			var observer = null;
+			var reveals = Array.prototype.slice.call(document.querySelectorAll('.reveal'));
 
-			function observeReveals() {
-				// Skips anything already handled, so it can run again after new nodes render.
-				var reveals = Array.prototype.slice.call(document.querySelectorAll('.reveal:not([data-seen])'));
+			if (reduceMotion || !('IntersectionObserver' in window)) {
+				reveals.forEach(function (el) { el.classList.add('is-visible'); });
+				return;
+			}
 
-				if (reduceMotion || !('IntersectionObserver' in window)) {
-					reveals.forEach(function (el) {
-						el.setAttribute('data-seen', '');
-						el.classList.add('is-visible');
-					});
-					return;
-				}
-
-				if (!observer) {
-					observer = new IntersectionObserver(function (entries, obs) {
-						entries.forEach(function (entry) {
-							if (entry.isIntersecting) {
-								entry.target.classList.add('is-visible');
-								obs.unobserve(entry.target);
-							}
-						});
-					}, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
-				}
-
-				// Reveal anything already within the viewport right away; observe the rest for scroll.
-				reveals.forEach(function (el) {
-					el.setAttribute('data-seen', '');
-					var rect = el.getBoundingClientRect();
-					if (rect.top < (window.innerHeight || 0) && rect.bottom > 0) {
-						el.classList.add('is-visible');
-					} else {
-						observer.observe(el);
+			var observer = new IntersectionObserver(function (entries, obs) {
+				entries.forEach(function (entry) {
+					if (entry.isIntersecting) {
+						entry.target.classList.add('is-visible');
+						obs.unobserve(entry.target);
 					}
 				});
-			}
+			}, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
 
-			observeReveals();
-
-			// ---------- Selected work: render from projects.json ----------
-			// The section ships with static fallback markup (works with JS off or
-			// over file://); when projects.json is available it becomes the source
-			// of truth. Update projects.json to change this list.
-			function esc(str) {
-				return String(str).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
-			}
-
-			function renderProjects(list) {
-				var ol = document.getElementById('project-list');
-				if (!ol) return;
-
-				var featured = list.filter(function (p) { return p.featured && p.live && p.url; });
-				if (!featured.length) return;
-
-				ol.innerHTML = featured.map(function (p, i) {
-					var num = ('0' + (i + 1)).slice(-2);
-					var delay = i % 4;
-					var tags = (p.tags || []).map(esc).join(' &middot; ');
-					return '<li class="reveal"' + (delay ? ' data-delay="' + delay + '"' : '') + '>' +
-						'<span class="project-num">' + num + '</span>' +
-						'<div class="project-body">' +
-							'<h3><a href="' + esc(p.url) + '" target="_blank" rel="noopener">' + esc(p.title) + '<span class="arw" aria-hidden="true">&#8599;</span></a></h3>' +
-							'<p>' + esc(p.description) + '</p>' +
-							'<p class="project-meta">' + esc(p.period) + ' &middot; ' + tags + '</p>' +
-						'</div></li>';
-				}).join('');
-
-				observeReveals();
-			}
-
-			if (window.fetch) {
-				fetch('projects.json', { cache: 'no-cache' })
-					.then(function (res) { return res.ok ? res.json() : Promise.reject(new Error('HTTP ' + res.status)); })
-					.then(function (data) {
-						if (data && data.projects) renderProjects(data.projects);
-					})
-					.catch(function () { /* keep the static fallback markup */ });
-			}
+			// Reveal anything already within the viewport right away; observe the rest for scroll.
+			reveals.forEach(function (el) {
+				var rect = el.getBoundingClientRect();
+				if (rect.top < (window.innerHeight || 0) && rect.bottom > 0) {
+					el.classList.add('is-visible');
+				} else {
+					observer.observe(el);
+				}
+			});
 		})();
 	</script>
 </body>
